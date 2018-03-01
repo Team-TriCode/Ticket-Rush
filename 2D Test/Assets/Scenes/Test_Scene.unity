@@ -987,7 +987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 916552972}
   m_Layer: 0
-  m_Name: groundcheck
+  m_Name: Groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1914,7 +1914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
 --- !u!50 &1669592790
 Rigidbody2D:
   serializedVersion: 4
