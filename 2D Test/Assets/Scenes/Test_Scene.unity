@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6755312}
   - component: {fileID: 6755311}
   - component: {fileID: 6755310}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Yellow_House_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 12793940}
   - component: {fileID: 12793939}
   - component: {fileID: 12793938}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fence_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 161381377}
   - component: {fileID: 161381376}
   - component: {fileID: 161381375}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tall_Grey_Building_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 268884783}
   - component: {fileID: 268884782}
   - component: {fileID: 268884781}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Red_Building_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495001245}
   - component: {fileID: 495001244}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Yellow_House_001 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 604021188}
   - component: {fileID: 604021187}
   - component: {fileID: 604021186}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pavement_001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,6 +978,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &916552971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 916552972}
+  m_Layer: 0
+  m_Name: groundcheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &916552972
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 916552971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.33, y: -3.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1669592793}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990622732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1125,7 @@ GameObject:
   - component: {fileID: 1096132365}
   - component: {fileID: 1096132364}
   - component: {fileID: 1096132363}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crate_001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1194,7 +1222,7 @@ GameObject:
   - component: {fileID: 1264158492}
   - component: {fileID: 1264158491}
   - component: {fileID: 1264158490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crate_001 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1362,7 +1390,7 @@ GameObject:
   - component: {fileID: 1425030533}
   - component: {fileID: 1425030532}
   - component: {fileID: 1425030531}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tall_Grey_Building_001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1459,7 +1487,7 @@ GameObject:
   - component: {fileID: 1471624669}
   - component: {fileID: 1471624668}
   - component: {fileID: 1471624667}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crate_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1556,7 +1584,7 @@ GameObject:
   - component: {fileID: 1490620084}
   - component: {fileID: 1490620083}
   - component: {fileID: 1490620082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Short_Grey_Building_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1652,7 +1680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1494770561}
   - component: {fileID: 1494770560}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fence_001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,6 +1912,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016192fe9469d3641be65681bb34998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &1669592790
 Rigidbody2D:
   serializedVersion: 4
@@ -1982,6 +2013,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 429132195}
+  - {fileID: 916552972}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2160,7 +2192,7 @@ GameObject:
   - component: {fileID: 1818657951}
   - component: {fileID: 1818657950}
   - component: {fileID: 1818657949}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Yellow_House_001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2285,7 +2317,7 @@ GameObject:
   - component: {fileID: 1854992353}
   - component: {fileID: 1854992352}
   - component: {fileID: 1854992351}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pavement_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2425,7 +2457,7 @@ GameObject:
   - component: {fileID: 2117795614}
   - component: {fileID: 2117795613}
   - component: {fileID: 2117795612}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tall_Grey_Building_001 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
