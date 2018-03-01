@@ -12,17 +12,17 @@ public class Menu : MonoBehaviour {
     {
         SettingsCanvas.enabled = false;
     }
-    public void SettingsOn()
+    public void OptionsOn()
     {
         SettingsCanvas.enabled = true;
         MainCanvas.enabled = false;
     }
-    public void ReturnOn()
+    public void BackOn()
     {
         SettingsCanvas.enabled = false;
         MainCanvas.enabled = true;
     }
-    public void loadOn()
+    public void LoadOn()
     {
         Application.LoadLevel(1);
     } 
