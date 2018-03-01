@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour {
 
+    private float m_health = 100.0f;
     private float m_speed = 5.0f;
     private float m_axisX;
     private float m_axisY;
     private float m_jumpPower = 300.0f;
+    private bool m_isGrounded = false;
+    private Vector3 m_ground;
+    public LayerMask groundLayer;
     private Rigidbody2D m_rb2d;
     // Use this for initialization
     void Start ()
@@ -19,23 +23,45 @@ public class Player_Controller : MonoBehaviour {
 
     private void Update()
     {
+        CheckGrounded();
         PlayerMove();
         Jump();
     }
-    
+
     private void PlayerMove()
     {
         m_axisX = Input.GetAxis("Horizontal");
 
-
+        m_ground = GameObject.Find("Groundcheck").transform.position;
         transform.Translate(new Vector2(m_axisX, m_axisY) * m_speed * Time.deltaTime);
     }
+
+    // Performs jump unless player is grounded
+
     private void Jump()
     {
         if(Input.GetButtonDown("Jump"))
         {
-            m_rb2d.AddForce(Vector2.up * m_jumpPower);
+            if(m_isGrounded)
+            {
+                m_rb2d.AddForce(Vector2.up * m_jumpPower);
+            }
+            
         }
+
+    }
+    public void TakeDamage(float damage)
+    {
+        m_health -= damage;
+        if(m_health <= 0)
+        {
+            Debug.Log("GameOver");
+        }
+    }
+    private void CheckGrounded()
+    {
+
+        m_isGrounded = (Physics2D.Linecast(transform.position, m_ground, groundLayer));
 
     }
 }
