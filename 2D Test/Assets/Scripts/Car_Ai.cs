@@ -2,26 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car_Ai : MonoBehaviour {
+public class Car_Ai : MonoBehaviour
+{
 
     private float m_damage = 100.0f;
     private float m_speed = 5.0f;
-    private float m_axisY;
-
-
-    // Use this for initialization
-    void Start () {
-		
-	}
+    private float m_axisY;    
 	
-	// Update is called once per frame
-	void Update () {
+	void Update()
+    {
         CarMove();
 	}
 
     private void CarMove()
     {
-
         transform.Translate(new Vector2(-m_speed, m_axisY) * Time.deltaTime);
     }
 
@@ -30,4 +24,5 @@ public class Car_Ai : MonoBehaviour {
         Player_Controller controller = collision.gameObject.GetComponent<Player_Controller>();
         controller.TakeDamage(m_damage);
     }
+
 }

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lift_Controller : MonoBehaviour {
+public class Lift_Controller : MonoBehaviour
+{
 
     public GameObject startObj;
     public GameObject targetObj;
@@ -19,35 +20,37 @@ public class Lift_Controller : MonoBehaviour {
         m_originPos = startObj.transform.position;
         m_nextPos = targetObj.transform.position;
     }
+
     private void Update()
     {
-        if(m_on)
+        if (m_on)
         {
             Move();
         }
     }
+
     public void TurnOn()
     {
         m_on = true;
     }
+
     public void Move()
     {
         
-        if(startObj.transform.position != m_nextPos)
+        if (startObj.transform.position != m_nextPos)
         {
             startObj.transform.position = Vector3.MoveTowards(startObj.transform.position, m_nextPos, m_speed * Time.deltaTime);
         }
-        else if(m_moved == false)
+        else if (m_moved == false)
         {
             m_moved = true;
             m_nextPos = m_originPos;
         }
-        else if(m_moved == true)
+        else if (m_moved == true)
         {
             m_moved = false;
             m_nextPos = m_targetPos;
-        }
-            
+        }            
     }
 
 }
