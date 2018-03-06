@@ -60,8 +60,15 @@ public class Player_Controller : MonoBehaviour {
     }
     private void CheckGrounded()
     {
+        RaycastHit2D hit = Physics2D.Raycast(m_ground, -Vector2.up, groundLayer);
 
-        m_isGrounded = (Physics2D.Linecast(transform.position, m_ground, groundLayer));
-
+        if (hit.distance > 1)
+        {
+            m_isGrounded = false;
+        }
+        else if (hit.distance <= 1)
+        {
+            m_isGrounded = true;
+        }      
     }
 }
