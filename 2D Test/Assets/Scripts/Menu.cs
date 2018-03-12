@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour {
 
     public Canvas MainCanvas;
     public Canvas SettingsCanvas;
+    public Text toggleFullScreen;
 
     private void Awake()
     {
@@ -35,4 +36,29 @@ public class Menu : MonoBehaviour {
         Application.Quit();
     }
 
+    public void setFullScreen()
+    {
+        if (Screen.fullScreen == true)
+        {
+            Screen.fullScreen = false;
+            toggleFullScreen.enabled = false;
+        }
+        else
+        {
+            Screen.fullScreen = true;
+            toggleFullScreen.enabled = false;
+        }
+    }
+
+    public void setQualityLow()
+    {
+        int qualityLevel = QualitySettings.GetQualityLevel();
+        print(qualityLevel);
+
+        for (int i = 0; i < QualitySettings.names.Length; i++)
+        {
+            QualitySettings.SetQualityLevel(i, true);
+        }
+        
+    }
 }
