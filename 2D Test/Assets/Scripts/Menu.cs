@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Menu : MonoBehaviour
-{
+public class Menu : MonoBehaviour {
+
     public Canvas MainCanvas;
     public Canvas SettingsCanvas;
 
@@ -30,5 +30,9 @@ public class Menu : MonoBehaviour
         Application.LoadLevel(1);
     } 
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
 
 }

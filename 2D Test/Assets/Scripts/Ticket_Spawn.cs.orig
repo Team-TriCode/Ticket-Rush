@@ -1,0 +1,39 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+<<<<<<< HEAD
+public class Ticket_Spawn : MonoBehaviour
+{
+    public GameObject ticketPrefab;
+
+    void Start ()
+    {
+        SpawnTicket();
+=======
+public class Ticket_Spawn : MonoBehaviour {
+
+
+    public GameObject ticketPrefab;
+    // Use this for initialization
+    void Start () {
+
+        SpawnTicket();
+
+>>>>>>> Hot_Fixes
+    }
+	
+    private void SpawnTicket()
+    {
+        GameObject car = Instantiate(ticketPrefab, transform.position, transform.rotation);
+    }
+<<<<<<< HEAD
+        
+=======
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+    }
+>>>>>>> Hot_Fixes
+}
