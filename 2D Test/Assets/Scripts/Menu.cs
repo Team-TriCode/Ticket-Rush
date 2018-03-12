@@ -38,16 +38,17 @@ public class Menu : MonoBehaviour {
 
     public void setFullScreen()
     {
-        if (Screen.fullScreen == true)
-        {
-            Screen.fullScreen = false;
-            toggleFullScreen.enabled = false;
-        }
-        else
-        {
-            Screen.fullScreen = true;
-            toggleFullScreen.enabled = false;
-        }
+        Screen.fullScreen = !Screen.fullScreen;
+        //if (Screen.fullScreen == true)
+        //{
+        //    Screen.fullScreen = false;
+        //    toggleFullScreen.enabled = false;
+        //}
+        //else
+        //{
+        //    Screen.fullScreen = true;
+        //    toggleFullScreen.enabled = false;
+        //}
     }
 
     public void setQualityLow()
@@ -58,7 +59,8 @@ public class Menu : MonoBehaviour {
         for (int i = 0; i < QualitySettings.names.Length; i++)
         {
             QualitySettings.SetQualityLevel(i, true);
-        }
-        
+        }        
     }
+
+
 }

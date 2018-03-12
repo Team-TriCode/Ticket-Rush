@@ -11,7 +11,7 @@ public class Player_Controller : MonoBehaviour
     private float m_jumpPower = 300.0f;
     private bool m_isGrounded = false;
     private Vector3 m_ground;
-    private bool m_groundCheck; // CHECK VAR
+    public Transform m_groundCheck; // CHECK VAR
     public LayerMask groundLayer;
     private Rigidbody2D m_rb2d;
        
@@ -42,10 +42,10 @@ public class Player_Controller : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            if(m_isGrounded)
-            {
+            //if(m_isGrounded)
+            //{
                 m_rb2d.AddForce(Vector2.up * m_jumpPower);
-            }            
+            //}            
         }
     }
 
