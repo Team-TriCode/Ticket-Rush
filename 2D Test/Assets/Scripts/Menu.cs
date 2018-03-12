@@ -12,20 +12,27 @@ public class Menu : MonoBehaviour {
     {
         SettingsCanvas.enabled = false;
     }
+
     public void OptionsOn()
     {
         SettingsCanvas.enabled = true;
         MainCanvas.enabled = false;
     }
+
     public void BackOn()
     {
         SettingsCanvas.enabled = false;
         MainCanvas.enabled = true;
     }
+
     public void LoadOn()
     {
         Application.LoadLevel(1);
     } 
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
 
 }
