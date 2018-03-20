@@ -11,13 +11,18 @@ public class Player_Controller : MonoBehaviour
     private float m_axisY;
     private float m_jumpPower = 300.0f;
     private bool m_isGrounded = false;
+    private bool notIdle = false;
+    private bool lookingRight = true;
     private Vector3 m_ground;
     public LayerMask groundLayer;
     private Rigidbody2D m_rb2d;
+    private Animator anim;
+
     // Use this for initialization
     void Start()
     {
         m_rb2d = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,7 +30,29 @@ public class Player_Controller : MonoBehaviour
     private void Update()
     {
         CheckGrounded();
-        PlayerMove();
+
+        if (Input.GetKey(KeyCode.LeftArrow) && lookingRight == true)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            lookingRight = false;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow) && lookingRight == false)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            lookingRight = true;
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
+            PlayerMove();
+            notIdle = true;
+        }
+        else
+        {
+            notIdle = false;
+        }
+
         Jump();
     }
 
@@ -35,6 +62,8 @@ public class Player_Controller : MonoBehaviour
 
         m_ground = GameObject.Find("Groundcheck").transform.position;
         transform.Translate(new Vector2(m_axisX, m_axisY) * m_speed * Time.deltaTime);
+        anim.Play("PlayerWalking");
+
     }
 
     // Performs jump unless player is grounded
@@ -46,6 +75,7 @@ public class Player_Controller : MonoBehaviour
             if (m_isGrounded)
             {
                 m_rb2d.AddForce(Vector2.up * m_jumpPower);
+                anim.Play("PlayerJump");
             }
 
         }
@@ -70,6 +100,10 @@ public class Player_Controller : MonoBehaviour
         else if (hit.distance <= 1)
         {
             m_isGrounded = true;
+            if(notIdle == false)
+            {
+                anim.Play("PlayerIdle");
+            }
         }
     }
 }
