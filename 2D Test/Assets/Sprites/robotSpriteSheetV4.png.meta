@@ -1,21 +1,23 @@
 fileFormatVersion: 2
-guid: c599ceb9a9dd54948a67483c59ce09f6
-timeCreated: 1521476089
-licenseType: Free
+guid: 20d7919f48fc7e747b926316c2276a79
+timeCreated: 1521546360
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: robotSpriteSheetV3_0
-    21300002: robotSpriteSheetV3_1
-    21300004: robotSpriteSheetV3_2
-    21300006: robotSpriteSheetV3_3
-    21300008: robotSpriteSheetV3_4
-    21300010: robotSpriteSheetV3_5
-    21300012: robotSpriteSheetV3_6
-    21300014: robotSpriteSheetV3_7
-    21300016: robotSpriteSheetV3_8
-    21300018: robotSpriteSheetV3_9
-    21300020: robotSpriteSheetV3_10
-    21300022: robotSpriteSheetV3_11
+    21300000: robotSpriteSheetV4_0
+    21300002: robotSpriteSheetV4_1
+    21300004: robotSpriteSheetV4_2
+    21300006: robotSpriteSheetV4_3
+    21300008: robotSpriteSheetV4_4
+    21300010: robotSpriteSheetV4_5
+    21300012: robotSpriteSheetV4_6
+    21300014: robotSpriteSheetV4_7
+    21300016: robotSpriteSheetV4_8
+    21300018: robotSpriteSheetV4_9
+    21300020: robotSpriteSheetV4_10
+    21300022: robotSpriteSheetV4_11
+    21300024: robotSpriteSheetV4_12
+    21300026: robotSpriteSheetV4_13
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -72,7 +74,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,7 +104,17 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,169 +124,197 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: robotSpriteSheetV3_0
+      name: robotSpriteSheetV4_0
       rect:
         serializedVersion: 2
         x: 38
-        y: 159
+        y: 319
         width: 30
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_1
+      name: robotSpriteSheetV4_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 319
+        width: 30
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robotSpriteSheetV4_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 244
+        width: 30
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robotSpriteSheetV4_3
       rect:
         serializedVersion: 2
         x: 84
-        y: 160
+        y: 245
         width: 27
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_2
+      name: robotSpriteSheetV4_4
       rect:
         serializedVersion: 2
         x: 145
-        y: 161
+        y: 246
         width: 35
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_3
+      name: robotSpriteSheetV4_5
       rect:
         serializedVersion: 2
         x: 197
-        y: 159
+        y: 244
         width: 27
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_4
+      name: robotSpriteSheetV4_6
       rect:
         serializedVersion: 2
         x: 239
-        y: 159
+        y: 244
         width: 30
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_5
+      name: robotSpriteSheetV4_7
       rect:
         serializedVersion: 2
         x: 277
-        y: 160
+        y: 245
         width: 40
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_6
+      name: robotSpriteSheetV4_8
       rect:
         serializedVersion: 2
         x: 38
-        y: 84
+        y: 169
         width: 46
         height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_7
+      name: robotSpriteSheetV4_9
       rect:
         serializedVersion: 2
         x: 111
-        y: 84
+        y: 169
         width: 26
         height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_8
+      name: robotSpriteSheetV4_10
       rect:
         serializedVersion: 2
         x: 169
-        y: 82
+        y: 167
         width: 39
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_9
+      name: robotSpriteSheetV4_11
       rect:
         serializedVersion: 2
         x: 42
-        y: 2
+        y: 87
         width: 35
         height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_10
+      name: robotSpriteSheetV4_12
       rect:
         serializedVersion: 2
         x: 101
-        y: 2
+        y: 87
         width: 43
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV3_11
+      name: robotSpriteSheetV4_13
       rect:
         serializedVersion: 2
         x: 161
-        y: 2
+        y: 87
         width: 49
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
