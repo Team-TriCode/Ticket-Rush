@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
+
     private float m_health = 100.0f;
     private float m_speed = 5.0f;
     private float m_axisX;
@@ -11,16 +12,15 @@ public class Player_Controller : MonoBehaviour
     private float m_jumpPower = 300.0f;
     private bool m_isGrounded = false;
     private Vector3 m_ground;
-    public Transform m_groundCheck; // CHECK VAR
     public LayerMask groundLayer;
     private Rigidbody2D m_rb2d;
-       
-
-    void Start ()
+    // Use this for initialization
+    void Start()
     {
         m_rb2d = gameObject.GetComponent<Rigidbody2D>();
-        m_groundCheck = GameObject.Find("Groundcheck").GetComponent<Transform>();
-	}    
+    }
+
+    // Update is called once per frame
 
     private void Update()
     {
@@ -38,26 +38,27 @@ public class Player_Controller : MonoBehaviour
     }
 
     // Performs jump unless player is grounded
+
     private void Jump()
     {
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-           if(m_isGrounded)
+            if (m_isGrounded)
             {
                 m_rb2d.AddForce(Vector2.up * m_jumpPower);
-            }            
-        }
-    }
+            }
 
+        }
+
+    }
     public void TakeDamage(float damage)
     {
         m_health -= damage;
-        if(m_health <= 0)
+        if (m_health <= 0)
         {
             Debug.Log("GameOver");
         }
     }
-
     private void CheckGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(m_ground, -Vector2.up, groundLayer);
@@ -69,6 +70,6 @@ public class Player_Controller : MonoBehaviour
         else if (hit.distance <= 1)
         {
             m_isGrounded = true;
-        }      
+        }
     }
 }
