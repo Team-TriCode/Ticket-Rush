@@ -7,7 +7,7 @@ public class Player_Controller : MonoBehaviour
     private float m_health = 100.0f;
     private float m_speed = 5.0f;
     private float m_axisX;
-    private float m_axisY;
+    private float m_axisY = 0.0f;
     private float m_jumpPower = 300.0f;
     private bool m_isGrounded = false;
     private Vector3 m_ground;
@@ -27,6 +27,7 @@ public class Player_Controller : MonoBehaviour
         CheckGrounded();
         PlayerMove();
         Jump();
+        
     }
 
     private void PlayerMove()
@@ -61,6 +62,8 @@ public class Player_Controller : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(m_ground, -Vector2.up, groundLayer);
+
+        Debug.DrawRay(transform.position, -Vector3.up, Color.green);
 
         if (hit.distance > 1)
         {

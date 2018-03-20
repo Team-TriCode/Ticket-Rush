@@ -7,7 +7,7 @@ public class Car_Ai : MonoBehaviour
 
     private float m_damage = 100.0f;
     private float m_speed = 5.0f;
-    private float m_axisY;    
+    private float m_axisY = 0.0f;    
 	
 	void Update()
     {
