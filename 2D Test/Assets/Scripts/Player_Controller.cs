@@ -42,10 +42,10 @@ public class Player_Controller : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            //if(m_isGrounded)
-            //{
+           if(m_isGrounded)
+            {
                 m_rb2d.AddForce(Vector2.up * m_jumpPower);
-            //}            
+            }            
         }
     }
 
