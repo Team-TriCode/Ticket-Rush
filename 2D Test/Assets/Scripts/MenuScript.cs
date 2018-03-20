@@ -16,6 +16,7 @@ public class MenuScript : MonoBehaviour
 
     Resolution[] resolutions;
 
+    // Find all resolutions and populate the Resolution Dropdown with the values cast as strings
     void Start()
     {
         resolutions = Screen.resolutions;
@@ -64,16 +65,19 @@ public class MenuScript : MonoBehaviour
         audioMixer.SetFloat("volume", value);
     }
 
+    // Set quality acording to dropdown index
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
+    // Set fullscreen according to toggle value
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
     }
 
+    // Set resolution according to dropdown index
     public void SetResolution(int resIndex)
     {
         Resolution resolution = resolutions[resIndex];

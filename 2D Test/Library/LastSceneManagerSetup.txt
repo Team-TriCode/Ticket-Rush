@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Menu.unity
+- path: C:/Users/mdbell/Documents/GitHub/AINT254-Project/Game_Mechanic/Assets/Scene/Game_Mechanic.unity
   isLoaded: 1
   isActive: 1
