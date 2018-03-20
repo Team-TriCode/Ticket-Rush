@@ -8,7 +8,7 @@ public class Player_Controller : MonoBehaviour
     private float m_health = 100.0f;
     private float m_speed = 5.0f;
     private float m_axisX;
-    private float m_axisY;
+    private float m_axisY = 0.0f;
     private float m_jumpPower = 300.0f;
     private bool m_isGrounded = true;
     private bool notIdle = false;
@@ -55,6 +55,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         Jump();
+        
     }
 
     private void PlayerMove()
@@ -94,5 +95,22 @@ public class Player_Controller : MonoBehaviour
         m_ground2 = GameObject.Find("Groundcheck2").transform.position;
         m_isGrounded = Physics2D.OverlapArea(m_ground, m_ground2, groundLayer);
 
+<<<<<<< HEAD
+=======
+        Debug.DrawRay(transform.position, -Vector3.up, Color.green);
+
+        if (hit.distance > 1)
+        {
+            m_isGrounded = false;
+        }
+        else if (hit.distance <= 1)
+        {
+            m_isGrounded = true;
+            if(notIdle == false)
+            {
+                anim.Play("PlayerIdle");
+            }
+        }
+>>>>>>> d9923840ea220c46ca5962865f4b7625bbf15c6e
     }
 }
