@@ -12,6 +12,7 @@ public class Player_Controller : MonoBehaviour
     private float m_jumpPower = 300.0f;
     private bool m_isGrounded = true;
     private bool notIdle = false;
+    private bool isJumping = false;
     private bool lookingRight = true;
     private Vector3 m_ground;
     private Vector3 m_ground2;
@@ -24,6 +25,17 @@ public class Player_Controller : MonoBehaviour
     {
         m_rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            m_isGrounded = true;
+            isJumping = false;
+        }
+
     }
 
     // Update is called once per frame
@@ -49,20 +61,25 @@ public class Player_Controller : MonoBehaviour
             PlayerMove();
             notIdle = true;
         }
-        else
+        
+        if (notIdle == false)
         {
-            notIdle = false;
+            anim.Play("PlayerIdle");
         }
 
         Jump();
-        
+
     }
 
     private void PlayerMove()
     {
         m_axisX = Input.GetAxis("Horizontal");
         transform.Translate(new Vector2(m_axisX, m_axisY) * m_speed * Time.deltaTime);
-        anim.Play("PlayerWalking");
+
+        if (isJumping == false)
+        {
+            anim.Play("PlayerWalking");
+        }
 
     }
 
@@ -72,9 +89,12 @@ public class Player_Controller : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
+            notIdle = true;
             if (m_isGrounded)
             {
                 m_rb2d.AddForce(Vector2.up * m_jumpPower);
+                m_isGrounded = false;
+                isJumping = true;
                 anim.Play("PlayerJump");
             }
 
@@ -89,28 +109,24 @@ public class Player_Controller : MonoBehaviour
             Debug.Log("GameOver");
         }
     }
+
     private void CheckGrounded()
     {
-        m_ground = GameObject.Find("Groundcheck").transform.position;
-        m_ground2 = GameObject.Find("Groundcheck2").transform.position;
-        m_isGrounded = Physics2D.OverlapArea(m_ground, m_ground2, groundLayer);
-
-<<<<<<< HEAD
-=======
-        Debug.DrawRay(transform.position, -Vector3.up, Color.green);
-
-        if (hit.distance > 1)
+        if (m_isGrounded)
         {
-            m_isGrounded = false;
+            notIdle = false;
         }
-        else if (hit.distance <= 1)
-        {
-            m_isGrounded = true;
-            if(notIdle == false)
-            {
-                anim.Play("PlayerIdle");
-            }
-        }
->>>>>>> d9923840ea220c46ca5962865f4b7625bbf15c6e
     }
+
+    //private void CheckGrounded()
+    //{
+    //    m_ground = GameObject.Find("Groundcheck").transform.position;
+    //    m_ground2 = GameObject.Find("Groundcheck2").transform.position;
+    //    m_isGrounded = Physics2D.OverlapArea(m_ground, m_ground2, groundLayer);
+
+    //    if (m_isGrounded == true)
+    //    {
+    //        notIdle = false;
+    //    }
+    //}
 }

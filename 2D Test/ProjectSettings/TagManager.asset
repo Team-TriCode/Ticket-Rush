@@ -8,6 +8,7 @@ TagManager:
   - Lift_Platform
   - Elevator
   - Building
+  - Floor
   layers:
   - Default
   - TransparentFX
