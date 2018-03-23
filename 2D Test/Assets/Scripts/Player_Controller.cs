@@ -35,7 +35,6 @@ public class Player_Controller : MonoBehaviour
             m_isGrounded = true;
             isJumping = false;
         }
-
     }
 
     // Update is called once per frame
