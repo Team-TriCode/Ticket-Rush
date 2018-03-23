@@ -22,6 +22,7 @@ public class Player_Controller : MonoBehaviour
     private Animator anim;
     
 
+
     void Start()
     {
         m_rb2d = gameObject.GetComponent<Rigidbody2D>();
