@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 newPos = new Vector3(player.position.x, player.position.y, player.position.z - 20);
+        Vector3 newPos = new Vector3(player.position.x, player.position.y, player.position.z - 10);
         transform.position = Vector3.Lerp(transform.position, newPos, (smoothing * Time.fixedDeltaTime));
     }
 
