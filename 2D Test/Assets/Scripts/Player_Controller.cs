@@ -5,130 +5,150 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     private float m_health = 100.0f;
-    private float m_speed = 5.0f;
-    private float m_axisX;
-    private float m_axisY = 0.0f;
-    private float m_jumpPower = 300.0f;
+    private int m_speed = 5;
+    private int m_jumpHeight = 300;
+    private int m_swingForce = 25;
 
+    private bool m_isSwinging = false;
     private bool m_isGrounded = true;
-    private bool notIdle = false;
-    private bool isJumping = false;
-    private bool lookingRight = true;
+    private bool m_canSwing = true;
+    private bool m_look = false;
 
+    private Rigidbody2D m_player;
     private Vector3 m_ground;
     private Vector3 m_ground2;
     public LayerMask groundLayer;
-    private Rigidbody2D m_rb2d;
-    private Animator anim;
-    
-
-
+    private Animator m_anim;
+    private SpriteRenderer m_monkey;   
+        
     void Start()
     {
-        m_rb2d = gameObject.GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponent<Animator>();
-    }    
+        m_monkey = this.GetComponent<SpriteRenderer>();
+        m_anim = this.GetComponent<Animator>();
+        m_player = this.GetComponent<Rigidbody2D>();
+    }
     
 
-    private void Update()
+    void Update()
     {
+        m_ground = GameObject.FindGameObjectWithTag("Groundcheck1").transform.position;
+        m_ground2 = GameObject.FindGameObjectWithTag("Groundcheck2").transform.position;
         CheckGrounded();
 
-        // Animation controller for moving left
-        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && lookingRight == true)
+        if (m_isSwinging == false)
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            lookingRight = false;
+            this.GetComponent<BoxCollider2D>().enabled = true;
+            m_anim.SetInteger("State", 0);
+            if (Input.GetButton("A"))
+            {
+                if (m_look == false)
+                {
+                    m_look = true;
+                    m_monkey.flipX = true;
+                }
+
+                m_anim.SetInteger("State", 1);
+                m_player.velocity = new Vector3(-m_speed, m_player.velocity.y, 0);
+
+                if (Input.GetButtonDown("Jump"))
+                {
+                    Jump();
+                }
+            }
+            else if (Input.GetButton("D"))
+            {
+                if (m_look == true)
+                {
+                    m_look = false;
+                    m_monkey.flipX = false;
+                }
+                m_anim.SetInteger("State", 1);
+                m_player.velocity = new Vector3(m_speed, m_player.velocity.y, 0);
+
+
+                if (Input.GetButtonDown("Jump"))
+                {
+                    Jump();
+                }
+            }
+            else if (Input.GetButtonDown("Jump"))
+            {
+                Jump();
+            }
+            else
+            {
+                m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
+            }
+        }
+        else
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+
+            if (Input.GetButton("A"))
+            {
+                m_player.AddForce(transform.right * -m_swingForce);
+            }
+
+            if (Input.GetButton("D"))
+            {
+                m_player.AddForce(transform.right * m_swingForce);
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                m_isSwinging = false;
+                Destroy(GetComponent<HingeJoint2D>());
+                m_player.AddForce(transform.up * m_jumpHeight);
+                StartCoroutine(Wait());
+            }
         }
 
-        // Animation controller for moving right
-        if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && lookingRight == false)
-        {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            lookingRight = true;
-        }
-
-        // Movement controller for A, D, Left Arrow and Right Arrow
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            PlayerMove();
-            notIdle = true;
-        }
-        
-        // Animation controller for idling
-        if (notIdle == false)
-        {
-            anim.Play("PlayerIdle");
-        }
-
-        Jump();
     }
 
-
-    // Takes horizontal axis value and transforms the player position accordingly
-    private void PlayerMove()
-    {
-        m_axisX = Input.GetAxis("Horizontal");
-        transform.Translate(new Vector2(m_axisX, m_axisY) * m_speed * Time.deltaTime);
-
-        if (isJumping == false)
-        {
-            anim.Play("PlayerWalking");
-        }
-
-    }
-
-
-    // Performs jump unless player is in the air
-    private void Jump()
-    {
-        if (Input.GetButtonDown("Jump") && m_isGrounded)
-        {
-            notIdle = true;
-            m_rb2d.AddForce(Vector2.up * m_jumpPower);
-            m_isGrounded = false;
-            isJumping = true;            
-        }
-    }
-
-
-    // When player collides with floor, is grounded is true
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor")
+        if (collision.gameObject.tag == "Rope" && m_canSwing == true)
         {
-            m_isGrounded = true;
-            isJumping = false;
+            m_isSwinging = true;
+            m_canSwing = false;
+
+            //attach to rope
+            HingeJoint2D hinge = gameObject.AddComponent<HingeJoint2D>() as HingeJoint2D;
+            hinge.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
+
         }
     }
-
-
-    // When player stops colliding with floor, is grounded is false, and player jump/fall anim plays
-    private void OnCollisionExit2D(Collision2D collision)
+    IEnumerator Wait()
     {
-        m_isGrounded = false;
-        isJumping = true;
-        anim.Play("PlayerJump");
+        yield return new WaitForSeconds(0.1f);
+        m_canSwing = true;
     }
+    private void CheckGrounded()
+    {
+        Debug.Log(m_ground);
+        Debug.Log(m_ground2);
+        Debug.Log(m_isGrounded);
+        m_isGrounded = Physics2D.OverlapArea(m_ground, m_ground2, groundLayer);
+        
 
+    }
+    private void Jump()
+    {
+        if (m_isGrounded)
+        {
+            
+            m_player.AddForce(transform.up * m_jumpHeight);
+            m_anim.SetInteger("State", 2);
 
-    // Player takes damage until health is 0, then its Game Over
+        }
+    }
     public void TakeDamage(float damage)
     {
+        Debug.Log("Hit");
         m_health -= damage;
         if (m_health <= 0)
         {
             Debug.Log("GameOver");
-        }
-    }
-
-
-    // If player is grounded, idle
-    private void CheckGrounded()
-    {        
-        if (m_isGrounded)
-        {
-            notIdle = false;
         }
     }
 }

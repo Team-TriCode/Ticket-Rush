@@ -569,9 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016192fe9469d3641be65681bb34998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!50 &336495277
 Rigidbody2D:
   serializedVersion: 4
@@ -626,7 +623,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 20d7919f48fc7e747b926316c2276a79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c56549c3a816674591202c2a94b5e30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1396,11 +1393,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4232965763026972, guid: 635aa387a1ea37c40b7bedcbbbc89fa2,
     type: 2}
   m_PrefabInternal: {fileID: 921818272}
---- !u!1 &921818274 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1153145357914920, guid: 635aa387a1ea37c40b7bedcbbbc89fa2,
-    type: 2}
-  m_PrefabInternal: {fileID: 921818272}
 --- !u!1 &938867271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,9 +2105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016192fe9469d3641be65681bb34998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!50 &1463234205
 Rigidbody2D:
   serializedVersion: 4
@@ -2770,8 +2759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fe38d2ea850d04da382ad77ee26288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startObj: {fileID: 921818274}
-  targetObj: {fileID: 938867271}
 --- !u!1 &2029635754
 GameObject:
   m_ObjectHideFlags: 0

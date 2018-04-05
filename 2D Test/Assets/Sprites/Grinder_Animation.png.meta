@@ -1,23 +1,17 @@
 fileFormatVersion: 2
-guid: 3c56549c3a816674591202c2a94b5e30
-timeCreated: 1521803689
+guid: 6fa6d4df6a9933c478f76a5be665083b
+timeCreated: 1521550287
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: robotSpriteSheetV4_0
-    21300002: robotSpriteSheetV4_1
-    21300004: robotSpriteSheetV4_2
-    21300006: robotSpriteSheetV4_3
-    21300008: robotSpriteSheetV4_4
-    21300010: robotSpriteSheetV4_5
-    21300012: robotSpriteSheetV4_6
-    21300014: robotSpriteSheetV4_7
-    21300016: robotSpriteSheetV4_8
-    21300018: robotSpriteSheetV4_9
-    21300020: robotSpriteSheetV4_10
-    21300022: robotSpriteSheetV4_11
-    21300024: robotSpriteSheetV4_12
-    21300026: robotSpriteSheetV4_13
+    21300000: Grinder_Animation_0
+    21300002: Grinder_Animation_1
+    21300004: Grinder_Animation_2
+    21300006: Grinder_Animation_3
+    21300008: Grinder_Animation_4
+    21300010: Grinder_Animation_5
+    21300012: Grinder_Animation_6
+    21300014: Grinder_Animation_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -74,7 +68,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +88,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: robotSpriteSheetV4_0
+      name: Grinder_Animation_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 319
-        width: 30
-        height: 67
+        x: 0
+        y: 896
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,13 +132,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV4_1
+      name: Grinder_Animation_1
       rect:
         serializedVersion: 2
-        x: 81
-        y: 319
-        width: 30
-        height: 66
+        x: 128
+        y: 896
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,13 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV4_2
+      name: Grinder_Animation_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 244
-        width: 30
-        height: 67
+        x: 256
+        y: 896
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,13 +160,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV4_3
+      name: Grinder_Animation_3
       rect:
         serializedVersion: 2
-        x: 84
-        y: 245
-        width: 27
-        height: 67
+        x: 384
+        y: 896
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,13 +174,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV4_4
+      name: Grinder_Animation_4
       rect:
         serializedVersion: 2
-        x: 145
-        y: 246
-        width: 35
-        height: 67
+        x: 512
+        y: 896
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,13 +188,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV4_5
+      name: Grinder_Animation_5
       rect:
         serializedVersion: 2
-        x: 197
-        y: 244
-        width: 27
-        height: 67
+        x: 640
+        y: 896
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,13 +202,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV4_6
+      name: Grinder_Animation_6
       rect:
         serializedVersion: 2
-        x: 239
-        y: 244
-        width: 30
-        height: 67
+        x: 768
+        y: 896
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,97 +216,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: robotSpriteSheetV4_7
+      name: Grinder_Animation_7
       rect:
         serializedVersion: 2
-        x: 277
-        y: 245
-        width: 40
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: robotSpriteSheetV4_8
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 169
-        width: 46
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: robotSpriteSheetV4_9
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 169
-        width: 26
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: robotSpriteSheetV4_10
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 167
-        width: 39
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: robotSpriteSheetV4_11
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 87
-        width: 35
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: robotSpriteSheetV4_12
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 87
-        width: 43
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: robotSpriteSheetV4_13
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 87
-        width: 49
-        height: 72
+        x: 896
+        y: 896
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
