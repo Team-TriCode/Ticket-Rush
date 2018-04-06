@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 120112779}
   - component: {fileID: 120112778}
   - component: {fileID: 120112777}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 216740833}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4153524157942926, guid: 06ce1f671697a36419050cde402a0fcf, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1128627364933898, guid: 06ce1f671697a36419050cde402a0fcf, type: 2}
       propertyPath: m_Name
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 435686926}
   - component: {fileID: 435686928}
   - component: {fileID: 435686929}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Stairs
   m_TagString: Stairs
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &435686928
 MonoBehaviour:
@@ -531,11 +531,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 619541049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.02, y: -3.11, z: 0}
+  m_LocalPosition: {x: -1.02, y: -3.11, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730057078
 GameObject:
@@ -589,7 +589,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.12
+  orthographic size: 7.107234
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 762827662}
   - component: {fileID: 762827661}
   - component: {fileID: 762827660}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Background
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -980,11 +980,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 967113007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9904028, y: -2.467, z: 0}
+  m_LocalPosition: {x: -0.9904028, y: -2.467, z: 2}
   m_LocalScale: {x: 1, y: 0.4517744, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069717619
 GameObject:
@@ -996,7 +996,7 @@ GameObject:
   - component: {fileID: 1069717622}
   - component: {fileID: 1069717621}
   - component: {fileID: 1069717620}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Big_Box
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1112,7 +1112,7 @@ Transform:
   m_Children:
   - {fileID: 1503309280}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1238415623
 GameObject:
@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 1271620093}
   - component: {fileID: 1271620092}
   - component: {fileID: 1271620094}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1354,7 +1354,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4153524157942926, guid: 06ce1f671697a36419050cde402a0fcf, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1128627364933898, guid: 06ce1f671697a36419050cde402a0fcf, type: 2}
       propertyPath: m_Name
@@ -1464,7 +1464,7 @@ Transform:
   - {fileID: 1292052435}
   - {fileID: 730057082}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1426740423
 MonoBehaviour:
@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
 --- !u!50 &1426740425
 Rigidbody2D:
   serializedVersion: 4
@@ -1578,7 +1578,7 @@ GameObject:
   - component: {fileID: 1503309284}
   - component: {fileID: 1503309282}
   - component: {fileID: 1503309281}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Platform_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1754,7 +1754,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1639799212
 MonoBehaviour:
@@ -1953,7 +1953,7 @@ GameObject:
   - component: {fileID: 1696395257}
   - component: {fileID: 1696395256}
   - component: {fileID: 1696395259}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2166,7 +2166,7 @@ RectTransform:
   m_Children:
   - {fileID: 1238415624}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2258,7 +2258,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1748473724
 CircleCollider2D:
@@ -2312,7 +2312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4153524157942926, guid: 06ce1f671697a36419050cde402a0fcf, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114026968053191432, guid: 06ce1f671697a36419050cde402a0fcf,
         type: 2}
@@ -2334,7 +2334,7 @@ GameObject:
   - component: {fileID: 2115968447}
   - component: {fileID: 2115968451}
   - component: {fileID: 2115968450}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Moveable_Box
   m_TagString: pushable
   m_Icon: {fileID: 0}
@@ -2520,5 +2520,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

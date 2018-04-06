@@ -38,7 +38,6 @@ public class Player_Controller : MonoBehaviour
         if (m_isSwinging == false)
         {
             this.GetComponent<BoxCollider2D>().enabled = true;
-            m_anim.SetInteger("State", 0);
             if (Input.GetButton("A"))
             {
                 if (m_look == false)
@@ -47,8 +46,12 @@ public class Player_Controller : MonoBehaviour
                     m_monkey.flipX = true;
                 }
 
-                m_anim.SetInteger("State", 1);
                 m_player.velocity = new Vector3(-m_speed, m_player.velocity.y, 0);
+
+                if (m_isGrounded)
+                {
+                    m_anim.SetInteger("State", 1);
+                }
 
                 if (Input.GetButtonDown("Jump"))
                 {
@@ -62,9 +65,11 @@ public class Player_Controller : MonoBehaviour
                     m_look = false;
                     m_monkey.flipX = false;
                 }
-                m_anim.SetInteger("State", 1);
                 m_player.velocity = new Vector3(m_speed, m_player.velocity.y, 0);
-
+                if (m_isGrounded)
+                {
+                    m_anim.SetInteger("State", 1);
+                }
 
                 if (Input.GetButtonDown("Jump"))
                 {
@@ -83,6 +88,7 @@ public class Player_Controller : MonoBehaviour
         else
         {
             GetComponent<BoxCollider2D>().enabled = false;
+            m_anim.SetInteger("State", 4);
 
             if (Input.GetButton("A"))
             {
@@ -97,6 +103,7 @@ public class Player_Controller : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 m_isSwinging = false;
+                m_anim.SetInteger("State", 5);
                 Destroy(GetComponent<HingeJoint2D>());
                 m_player.AddForce(transform.up * m_jumpHeight);
                 StartCoroutine(Wait());
@@ -129,17 +136,24 @@ public class Player_Controller : MonoBehaviour
         Debug.Log(m_ground2);
         Debug.Log(m_isGrounded);
         m_isGrounded = Physics2D.OverlapArea(m_ground, m_ground2, groundLayer);
-        
 
+        if (m_isGrounded)
+        {
+            m_anim.SetInteger("State", 0);
+        }
+
+        else
+        {
+            m_anim.SetInteger("State", 2);
+        }
     }
     private void Jump()
     {
         if (m_isGrounded)
         {
-            
             m_player.AddForce(transform.up * m_jumpHeight);
             m_anim.SetInteger("State", 2);
-
+            m_isGrounded = false;
         }
     }
     public void TakeDamage(float damage)
