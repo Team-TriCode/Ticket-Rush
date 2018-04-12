@@ -9,6 +9,15 @@ TagManager:
   - Elevator
   - Building
   - Floor
+  - Stairs
+  - Rope
+  - Ground
+  - Score
+  - Groundcheck2
+  - Groundcheck1
+  - StairsBut
+  - Canvas
+  - pushable
   layers:
   - Default
   - TransparentFX
