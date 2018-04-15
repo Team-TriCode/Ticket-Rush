@@ -9,58 +9,107 @@ public class Player_Controller : MonoBehaviour
     private int m_jumpHeight = 200;
     private int m_swingForce = 10;
 
+    private float m_xAxis;
+    private float m_yAxis;
+
     private bool m_isSwinging = false;
     private bool m_isGrounded;
     private bool m_canSwing = true;
-    private bool m_look = false;
+    private bool m_isJumping = false;
 
     private Rigidbody2D m_player;
-    private Vector3 m_ground;
-    private Vector3 m_ground2;
     public LayerMask groundLayer;
     private Animator m_anim;
-    private SpriteRenderer m_monkey;   
+    private SpriteRenderer m_playerRenderer;   
         
     void Start()
     {
-        m_monkey = this.GetComponent<SpriteRenderer>();
+        m_playerRenderer = this.GetComponent<SpriteRenderer>();
         m_anim = this.GetComponent<Animator>();
         m_player = this.GetComponent<Rigidbody2D>();
     }    
 
     void Update()
     {
-        this.GetComponent<BoxCollider2D>().enabled = true;
+        m_yAxis = Input.GetAxis("Vertical");
+        m_xAxis = Input.GetAxis("Horizontal");
 
-        if (Input.GetButton("A")) // Go left
+        Look();
+
+        if (m_isSwinging)
         {
-            if (m_look == false)
-            {
-                m_look = true;
-                m_monkey.flipX = true;
-            }
-            m_anim.SetInteger("State", 1);
-            m_player.velocity = new Vector3(-m_speed, m_player.velocity.y, 0);
+            Swinging();
         }
-        else if (Input.GetButton("D")) // Go right
-        {
-            if (m_look == true)
-            {
-                m_look = false;
-                m_monkey.flipX = false;
-            }
-            m_anim.SetInteger("State", 1);
-            m_player.velocity = new Vector3(m_speed, m_player.velocity.y, 0);
-        }        
         else
         {
-            m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
+            GetComponent<BoxCollider2D>().enabled = true;
+            Move();
+        }       
+    }
+
+    private void Move()
+    {
+        if (IsGrounded())
+        {
+            m_isJumping = false;
+        }
+
+        if (!IsGrounded()) // When player is in the air
+        {
+            m_anim.SetInteger("State", 2);
+        }
+        else if (IsGrounded() && m_xAxis != 0 && m_isJumping == false) // When player is moving and touching the ground
+        {
+            m_anim.SetInteger("State", 1);
+        }
+        else if (IsGrounded() && m_isJumping == false) // When player is idle
+        {
             m_anim.SetInteger("State", 0);
         }
 
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+        }
+
+        m_player.velocity = new Vector3(m_speed * m_xAxis, m_player.velocity.y, 0);
+    }
+
+    // Update the direction character should be facing
+    private void Look()
+    {
+        if (m_xAxis < 0)
+        {
+            m_playerRenderer.flipX = true;
+        }
+        else if (m_xAxis > 0)
+        {
+            m_playerRenderer.flipX = false;
+        }
+    }
+
+    // Swinging Method
+    public void Swinging()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+        m_anim.SetInteger("State", 4);
+
+        if (m_xAxis <= 0)
+        {
+            m_player.AddForce(transform.right * -m_swingForce);
+        }
+        if (m_xAxis >= 0)
+        {
+            m_player.AddForce(transform.right * m_swingForce);
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            m_isSwinging = false;
+            m_anim.SetInteger("State", 5);
+            Destroy(GetComponent<HingeJoint2D>());
+            m_player.AddForce(transform.up * m_jumpHeight * m_yAxis);
+            StartCoroutine(Wait());
         }
     }
 
@@ -112,33 +161,7 @@ public class Player_Controller : MonoBehaviour
         {
             Debug.Log("GameOver");
         }
-    }
-
-    // Swinging Method
-    public void Swinging()
-    {
-        GetComponent<BoxCollider2D>().enabled = false;
-        m_anim.SetInteger("State", 4);
-
-        if (Input.GetButton("A"))
-        {
-            m_player.AddForce(transform.right * -m_swingForce);
-        }
-
-        if (Input.GetButton("D"))
-        {
-            m_player.AddForce(transform.right * m_swingForce);
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            m_isSwinging = false;
-            m_anim.SetInteger("State", 5);
-            Destroy(GetComponent<HingeJoint2D>());
-            m_player.AddForce(transform.up * m_jumpHeight);
-            StartCoroutine(Wait());
-        }
-    }
+    }    
 
     // SwingWait Method
     IEnumerator Wait()
