@@ -47,7 +47,7 @@ public class MenuScript : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("Test_Scene");
+        SceneManager.LoadScene("Test Scene");
     }
 
     public void QuitButton()

@@ -26,8 +26,8 @@ public class LeaderboardScript : MonoBehaviour
 
         for (int i = 0; i < leaderboard.transform.childCount; i++)
         {
-            GameObject row = leaderboard.transform.Find("Row" + i).gameObject;
-            Debug.Log(row);
+            //GameObject row = leaderboard.transform.Find("Row" + i).gameObject;
+            //Debug.Log(row);
         }       
         
     }
