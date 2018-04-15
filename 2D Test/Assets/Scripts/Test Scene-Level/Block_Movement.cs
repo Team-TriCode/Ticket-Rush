@@ -7,13 +7,8 @@ public class Block_Movement : MonoBehaviour {
     private float m_distance = 1.0f;
     public LayerMask boxMask;
     private GameObject m_box;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    
 	
-	// Update is called once per frame
 	void Update ()
     {
         Physics2D.queriesStartInColliders = false;

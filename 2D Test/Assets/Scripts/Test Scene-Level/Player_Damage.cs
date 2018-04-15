@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player_Damage : MonoBehaviour
 {
-
-    private float m_damage = 100.0f;
+    private float m_damage = 34.0f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
