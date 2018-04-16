@@ -194,6 +194,6 @@ public class Player_Controller : MonoBehaviour
 
     private void PlayerLose()
     {
-        SceneManager.LoadScene("LevelComplete-GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 }

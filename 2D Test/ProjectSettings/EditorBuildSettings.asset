@@ -12,5 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Test Scene.unity
     guid: d4a82a80b3846794aa8d48d99a482706
   - enabled: 1
-    path: Assets/Scenes/LevelComplete-GameOver.unity
-    guid: 90f19ad65edecea4a822da28c1afd3b6
+    path: Assets/Scenes/Leaderboard.unity
+    guid: 6837bade9a396304caf6075128e917ab
+  - enabled: 1
+    path: Assets/Scenes/LevelComplete.unity
+    guid: d6dbca2f8aaa4be4cbb16784f05afbcb
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 5c0af6692b96a53478344632e628dc3c

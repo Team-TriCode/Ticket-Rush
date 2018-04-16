@@ -33,6 +33,6 @@ public class Level_Complete : MonoBehaviour
 
     private void PlayerWin()
     {
-        SceneManager.LoadScene("LevelComplete-GameOver");
+        SceneManager.LoadScene("LevelComplete");
     }
 }
