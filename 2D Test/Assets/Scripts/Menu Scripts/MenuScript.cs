@@ -50,6 +50,11 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("Test Scene");
     }
 
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void QuitButton()
     {
         Application.Quit();

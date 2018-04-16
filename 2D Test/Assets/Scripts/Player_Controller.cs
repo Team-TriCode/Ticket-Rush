@@ -6,7 +6,7 @@ public class Player_Controller : MonoBehaviour
 {    
     private float m_health = 100.0f;
     private int m_speed = 5;
-    private int m_jumpHeight = 200;
+    private int m_jumpHeight = 230;
     private int m_swingForce = 10;
 
     private float m_xAxis;
