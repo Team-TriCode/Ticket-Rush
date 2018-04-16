@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
 {    
     private float m_health = 100.0f;
     private int m_speed = 5;
-    private int m_jumpHeight = 230;
+    private int m_jumpHeight = 210;
     private int m_swingForce = 10;
 
     private float m_xAxis;
@@ -17,10 +18,13 @@ public class Player_Controller : MonoBehaviour
     private bool m_canSwing = true;
     private bool m_isJumping = false;
 
-    private Rigidbody2D m_player;
     public LayerMask groundLayer;
+    public Transform loseText;
+
+    private Rigidbody2D m_player;    
     private Animator m_anim;
     private SpriteRenderer m_playerRenderer;   
+    
         
     void Start()
     {
@@ -159,7 +163,9 @@ public class Player_Controller : MonoBehaviour
         m_health -= damage;
         if (m_health <= 0)
         {
-            Debug.Log("GameOver");
+            m_player.isKinematic = true;
+            ShowGameOver();
+            Invoke("PlayerLose", 2.5f);
         }
     }    
 
@@ -168,5 +174,27 @@ public class Player_Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         m_canSwing = true;
+    }
+
+    private void ShowGameOver()
+    {
+        if (loseText.gameObject.activeInHierarchy == false)
+        {
+            loseText.gameObject.SetActive(true);
+            Invoke("HideGameOver", 2.0f);
+        }
+    }
+
+    private void HideGameOver()
+    {
+        if (loseText.gameObject.activeInHierarchy == true)
+        {
+            loseText.gameObject.SetActive(false);
+        }
+    }
+
+    private void PlayerLose()
+    {
+        SceneManager.LoadScene("LevelComplete-GameOver");
     }
 }

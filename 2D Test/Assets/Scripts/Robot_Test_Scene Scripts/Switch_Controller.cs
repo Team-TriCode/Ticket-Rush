@@ -12,9 +12,10 @@ public class Switch_Controller : MonoBehaviour {
     {
         m_trigTag = this.tag;
     }
+
     private void Update()
     {
-        if(m_colTag == "Player" && m_inside == true)
+        if (m_colTag == "Player" && m_inside == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -22,27 +23,28 @@ public class Switch_Controller : MonoBehaviour {
             } 
         }
     }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         m_colTag = col.tag;
         m_inside = true;
     }
+
     private void OnTriggerExit2D(Collider2D col)
     {
         m_inside = false;
     }
+
     private void Switch()
     {
         switch (m_trigTag)
         {
             case "Elevator":
-
                 Debug.Log("in code");
                 GameObject liftPlat = GameObject.FindGameObjectWithTag("Lift_Platform");
                 Lift_Controller liftController = liftPlat.GetComponent<Lift_Controller>();
                 liftController.TurnOn();
                 break;
-
             case "StairsBut":
                 GameObject stairs = GameObject.FindGameObjectWithTag("Stairs");
                 Stair_Controller stairController = stairs.GetComponent<Stair_Controller>();
