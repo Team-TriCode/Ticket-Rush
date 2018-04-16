@@ -163,7 +163,6 @@ public class Player_Controller : MonoBehaviour
         m_health -= damage;
         if (m_health <= 0)
         {
-            m_player.isKinematic = true;
             ShowGameOver();
             Invoke("PlayerLose", 2.5f);
         }
