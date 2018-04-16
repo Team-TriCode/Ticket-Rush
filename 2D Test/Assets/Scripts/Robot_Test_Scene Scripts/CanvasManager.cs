@@ -17,6 +17,7 @@ public class CanvasManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Working");
             PauseGame();
         }
     }
