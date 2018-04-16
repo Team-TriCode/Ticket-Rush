@@ -12,6 +12,7 @@ public class Collectable_Manager : MonoBehaviour {
         UI_Manager ui = canvas.GetComponent<UI_Manager>();
         ui.AddScore(points);
         this.GetComponent<SpriteRenderer>().enabled = false;
+        Destroy(this);
     }
 
 }
