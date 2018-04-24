@@ -18,6 +18,10 @@ TagManager:
   - StairsBut
   - Canvas
   - pushable
+  - rowItemPlace
+  - rowItemName
+  - rowItemScore
+  - rowItemTime
   layers:
   - Default
   - TransparentFX

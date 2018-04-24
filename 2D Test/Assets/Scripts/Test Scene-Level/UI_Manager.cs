@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Manager : MonoBehaviour {
-
-    private int m_score = 0;
+public class UI_Manager : MonoBehaviour
+{
+    private int m_score;
     private GameObject currentScore;
     private Text m_scoreText;
+
+    private void Awake()
+    {
+        m_score = 0;
+    }
 
     public void AddScore(int score)
     {
