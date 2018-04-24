@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 41751854}
   m_Layer: 5
   m_Name: NameColumn
-  m_TagString: Untagged
+  m_TagString: rowItemName
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 324837393}
   m_Layer: 5
   m_Name: ScoreColumn
-  m_TagString: Untagged
+  m_TagString: rowItemScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 364038086}
   m_Layer: 5
   m_Name: TimeColoumn
-  m_TagString: Untagged
+  m_TagString: rowItemTime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 505609384}
   m_Layer: 5
   m_Name: NameColumn
-  m_TagString: Untagged
+  m_TagString: rowItemName
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1194,7 +1194,7 @@ GameObject:
   - component: {fileID: 512225629}
   m_Layer: 5
   m_Name: PlaceColumn
-  m_TagString: Untagged
+  m_TagString: rowItemPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1305,7 +1305,7 @@ GameObject:
   - component: {fileID: 531388272}
   m_Layer: 5
   m_Name: TimeColoumn
-  m_TagString: Untagged
+  m_TagString: rowItemTime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1490,7 +1490,7 @@ GameObject:
   - component: {fileID: 565597976}
   m_Layer: 5
   m_Name: NameColumn
-  m_TagString: Untagged
+  m_TagString: rowItemName
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 590885290}
   m_Layer: 5
   m_Name: TimeColoumn
-  m_TagString: Untagged
+  m_TagString: rowItemTime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1897,7 +1897,7 @@ GameObject:
   - component: {fileID: 717185443}
   m_Layer: 5
   m_Name: ScoreColumn
-  m_TagString: Untagged
+  m_TagString: rowItemScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2045,7 +2045,7 @@ GameObject:
   - component: {fileID: 760873393}
   m_Layer: 5
   m_Name: ScoreColumn
-  m_TagString: Untagged
+  m_TagString: rowItemScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2230,7 +2230,7 @@ GameObject:
   - component: {fileID: 780876704}
   m_Layer: 5
   m_Name: ScoreColumn
-  m_TagString: Untagged
+  m_TagString: rowItemScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2711,7 +2711,7 @@ GameObject:
   - component: {fileID: 995252772}
   m_Layer: 5
   m_Name: TimeColoumn
-  m_TagString: Untagged
+  m_TagString: rowItemTime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2896,7 +2896,7 @@ GameObject:
   - component: {fileID: 1071472762}
   m_Layer: 5
   m_Name: PlaceColumn
-  m_TagString: Untagged
+  m_TagString: rowItemPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3007,7 +3007,7 @@ GameObject:
   - component: {fileID: 1085988473}
   m_Layer: 5
   m_Name: TimeColoumn
-  m_TagString: Untagged
+  m_TagString: rowItemTime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3268,6 +3268,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1135879919}
+  - component: {fileID: 1135879920}
   m_Layer: 5
   m_Name: LeaderboardTable
   m_TagString: Untagged
@@ -3300,6 +3301,17 @@ RectTransform:
   m_AnchoredPosition: {x: 207.40034, y: -36.922756}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1135879920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1135879918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03a909503e8f5b41a1dbb074a22af2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1167440478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,7 +3510,7 @@ GameObject:
   - component: {fileID: 1169577318}
   m_Layer: 5
   m_Name: NameColumn
-  m_TagString: Untagged
+  m_TagString: rowItemName
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3936,7 +3948,7 @@ GameObject:
   - component: {fileID: 1287219819}
   m_Layer: 5
   m_Name: PlaceColumn
-  m_TagString: Untagged
+  m_TagString: rowItemPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4084,7 +4096,7 @@ GameObject:
   - component: {fileID: 1304473726}
   m_Layer: 5
   m_Name: NameColumn
-  m_TagString: Untagged
+  m_TagString: rowItemName
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4195,7 +4207,7 @@ GameObject:
   - component: {fileID: 1341830365}
   m_Layer: 5
   m_Name: ScoreColumn
-  m_TagString: Untagged
+  m_TagString: rowItemScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4454,7 +4466,7 @@ GameObject:
   - component: {fileID: 1377747973}
   m_Layer: 5
   m_Name: NameColumn
-  m_TagString: Untagged
+  m_TagString: rowItemName
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5003,7 +5015,7 @@ GameObject:
   - component: {fileID: 1602611455}
   m_Layer: 5
   m_Name: PlaceColumn
-  m_TagString: Untagged
+  m_TagString: rowItemPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5262,7 +5274,7 @@ GameObject:
   - component: {fileID: 1775526528}
   m_Layer: 5
   m_Name: PlaceColumn
-  m_TagString: Untagged
+  m_TagString: rowItemPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5416,7 +5428,7 @@ GameObject:
   - component: {fileID: 1855444197}
   m_Layer: 5
   m_Name: ScoreColumn
-  m_TagString: Untagged
+  m_TagString: rowItemScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5601,7 +5613,7 @@ GameObject:
   - component: {fileID: 1871662820}
   m_Layer: 5
   m_Name: PlaceColumn
-  m_TagString: Untagged
+  m_TagString: rowItemPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6008,7 +6020,7 @@ GameObject:
   - component: {fileID: 2091084854}
   m_Layer: 5
   m_Name: TimeColoumn
-  m_TagString: Untagged
+  m_TagString: rowItemTime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6290,6 +6302,7 @@ MonoBehaviour:
   audioMixer: {fileID: 0}
   volumeSlider: {fileID: 0}
   resolutionDropdown: {fileID: 0}
+  userText: {fileID: 0}
 --- !u!1 &2132228743
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,11 +14,18 @@ public class MenuScript : MonoBehaviour
     [SerializeField]
     private Dropdown resolutionDropdown;
 
+    public Text userText;
+    private string userName;
+    private int userScore;
+
     Resolution[] resolutions;
 
     // Find all resolutions and populate the Resolution Dropdown with the values cast as strings
     void Start()
     {
+        userName = userText.text;
+        userScore = int.Parse(PlayerPrefs.GetString("playerScore"));
+
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -60,8 +67,10 @@ public class MenuScript : MonoBehaviour
         Application.Quit();
     }
 
+    // Record player score and name input to the LeaderboardScript
     public void SubmitButton()
     {
+        LeaderboardScript.Record(userName, userScore);
         SceneManager.LoadScene("Leaderboard");
     }
 

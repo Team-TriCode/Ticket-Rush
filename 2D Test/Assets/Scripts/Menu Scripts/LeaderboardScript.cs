@@ -19,13 +19,7 @@ public class LeaderboardScript : MonoBehaviour
             this.name = name;
             this.score = score;
         }
-    }
-
-    private void Awake()
-    {
-        string playerScore = PlayerPrefs.GetString("playerScore");
-        Debug.Log(playerScore);
-    }
+    }    
 
     // Entry list
     private static List<ScoreEntry> s_Entries;
@@ -83,6 +77,17 @@ public class LeaderboardScript : MonoBehaviour
         return Entries[index];
     }
 
+    // Return all entries
+    public static void GetEntries()
+    {
+        Debug.Log("=============");
+        for (int i = 0; i < EntryCount; i++)
+        {
+            Debug.Log(Entries[i]);
+        }     
+        Debug.Log("=============");
+    }
+
     // Records a new entry
     public static void Record(string name, int score)
     {
@@ -91,43 +96,5 @@ public class LeaderboardScript : MonoBehaviour
         Entries.RemoveAt(Entries.Count - 1);
         SaveScores();
     }
-
-    //public GameObject leaderboard;
-
-    //List<UserScript> userList = new List<UserScript>();
-
-    //private void Start()
-    //{
-    //    UserScript newUser = new UserScript("MDB", 410, "1:13:56");
-    //    UserScript anotherUser = new UserScript("GPS", 450, "1:18:58");
-    //    UserScript aThirdUser = new UserScript("HJH", 350, "0:59:45");
-
-    //    userList.Add(newUser);
-    //    userList.Add(anotherUser);
-    //    userList.Add(aThirdUser);
-
-    //    PrintList();
-    //}
-
-    //private void PrintList()
-    //{
-    //    for (int i = 0; i < leaderboard.transform.childCount; i++)
-    //    {
-    //        GameObject row = leaderboard.transform.Find("Row1").gameObject;
-    //        GameObject name = row.transform.Find("NameColumn").gameObject;
-    //        Text nameText = name.GetComponent<Text>();
-    //        nameText.text = "Lol";
-
-    //    }
-
-    //}
-
-
-    //have gameobject holding name, score and time
-    // add it to an array
-
-
-    // have a function loop through the array and sort it by score, then time if needed
-
-    // find the rows in the editor, and print out the values to their.text properties
+    
 }

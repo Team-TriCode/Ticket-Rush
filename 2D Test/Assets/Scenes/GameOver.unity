@@ -753,6 +753,7 @@ MonoBehaviour:
   audioMixer: {fileID: 0}
   volumeSlider: {fileID: 0}
   resolutionDropdown: {fileID: 0}
+  userText: {fileID: 1671379964}
 --- !u!114 &1240396383
 MonoBehaviour:
   m_ObjectHideFlags: 0
