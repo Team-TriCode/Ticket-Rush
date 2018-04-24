@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class Level_Complete : MonoBehaviour
 {
     public Transform winText;
+    public Text scoreVal;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,6 +35,7 @@ public class Level_Complete : MonoBehaviour
 
     private void PlayerWin()
     {
+        PlayerPrefs.SetString("playerScore", scoreVal.text);
         SceneManager.LoadScene("LevelComplete");
     }
 }

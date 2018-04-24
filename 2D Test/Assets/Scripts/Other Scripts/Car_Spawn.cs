@@ -18,7 +18,7 @@ public class Car_Spawn : MonoBehaviour
     {
         if(m_canSpawn == true)
         {
-            GameObject car = Instantiate(carPrefab, transform.position, transform.rotation);
+            Instantiate(carPrefab, transform.position, transform.rotation);
             StartCoroutine(SpawnDelay());
         }        
     }

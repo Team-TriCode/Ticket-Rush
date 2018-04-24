@@ -5403,7 +5403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634072f5c4b2f514b954d53cb3ba7f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leaderboard: {fileID: 1135879918}
 --- !u!1 &1855444195
 GameObject:
   m_ObjectHideFlags: 0
