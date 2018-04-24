@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+<<<<<<< HEAD
+public class Car_Ai : MonoBehaviour
+{
+
+    private float m_damage = 100.0f;
+    private float m_speed = 5.0f;
+    private float m_axisY;    
+	
+	void Update()
+    {
+=======
+public class Car_Ai : MonoBehaviour {
+
+    private float m_damage = 100.0f;
+    private float m_speed = 5.0f;
+    private float m_axisY;
+
+
+    // Use this for initialization
+    void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+>>>>>>> Hot_Fixes
+        CarMove();
+	}
+
+    private void CarMove()
+    {
+<<<<<<< HEAD
+=======
+
+>>>>>>> Hot_Fixes
+        transform.Translate(new Vector2(-m_speed, m_axisY) * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player_Controller controller = collision.gameObject.GetComponent<Player_Controller>();
+        controller.TakeDamage(m_damage);
+    }
+<<<<<<< HEAD
+
+=======
+>>>>>>> Hot_Fixes
+}

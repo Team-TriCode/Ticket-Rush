@@ -7,6 +7,17 @@ TagManager:
   - Platform
   - Lift_Platform
   - Elevator
+  - Building
+  - Floor
+  - Stairs
+  - Rope
+  - Ground
+  - Score
+  - Groundcheck2
+  - Groundcheck1
+  - StairsBut
+  - Canvas
+  - pushable
   layers:
   - Default
   - TransparentFX
@@ -16,9 +27,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Car
+  - Ground
+  - Building
   - 
   - 
   - 
@@ -41,6 +52,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1726112245
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Car
+    uniqueID: 1718294123
     locked: 0
