@@ -4,45 +4,55 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
-{    
-    public float m_health = 100.0f;
-    private int m_speed = 5;
-    private int m_jumpHeight = 210;
-    private int m_swingForce = 10;
+{
 
-    private float m_xAxis;
-    private float m_yAxis;
-
-    private bool m_isSwinging = false;
-    private bool m_isGrounded;
-    private bool m_canSwing = true;
+    public float m_health = 100.0f; // Player health
+    private int m_speed = 5; // Player movement speed multiplier
+    private int m_jumpHeight = 300; // Player jump height
+    private int m_swingForce = 15; // Force multiplier for swing object
+    private bool m_isSwinging = false; // Check to see if player is currently interacting with swing object
+    private bool m_isGrounded = true; // Check to see if player is grounded
+    private bool m_canSwing = true; // Check to see if player can connect to swing object
     private bool m_isJumping = false;
-
-    public LayerMask groundLayer;
+    private Rigidbody2D m_player; // Player rigidbody
+    private Vector3 m_ground; // Top right corner co-ordinate of groundcheck object
+    private Vector3 m_ground2; // Bottom left corner co-ordinate of groundcheck object
+    public LayerMask groundLayer; // Layer that is defined as ground to the player
+    private Animator m_anim; // Player animation object
+    private SpriteRenderer m_monkey; // Player sprite renderer
+    private float m_xAxis; // Current X axis input
+    private float m_yAxis; // Current Y axis input
+    private bool m_playerDead = false;
     public Transform loseText;
 
-    private Rigidbody2D m_player;    
-    private Animator m_anim;
-    private SpriteRenderer m_playerRenderer;
-    private bool playerDead = false;
 
+
+
+    // Use this for initialization
     void Start()
     {
-        m_playerRenderer = this.GetComponent<SpriteRenderer>();
+
+        m_monkey = this.GetComponent<SpriteRenderer>();
         m_anim = this.GetComponent<Animator>();
         m_player = this.GetComponent<Rigidbody2D>();
-    }    
+    }
 
+    // Update is called once per frame
     void Update()
     {
+        // Keeps x and y inputs up to date
+
         m_yAxis = Input.GetAxis("Vertical");
         m_xAxis = Input.GetAxis("Horizontal");
 
-        if (playerDead == false)
+        // Check direction character should be facing
+
+        Look();
+
+        // Checks whether player is currently interacting with a swing object
+
+        if (m_playerDead == false)
         {
-
-            Look();
-
             if (m_isSwinging)
             {
                 Swinging();
@@ -53,64 +63,137 @@ public class Player_Controller : MonoBehaviour
                 Move();
             }
         }
-     
+
+
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Rope" && m_canSwing == true)
+        {
+            m_isSwinging = true;
+            m_canSwing = false;
+
+            // Creates Hinge joint on player to allow swinging motion
+
+            HingeJoint2D hinge = gameObject.AddComponent<HingeJoint2D>() as HingeJoint2D;
+            hinge.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
+
+        }
+    }
+    IEnumerator Wait()
+    {
+        // Delays ability to reconnect to swing to stop issues with swing exit
+
+        yield return new WaitForSeconds(0.1f);
+        m_canSwing = true;
+    }
+    private void CheckGrounded()
+    {
+
+        // Check if the groundcheck object is overlapping the designated ground layer
+
+        m_isGrounded = Physics2D.OverlapArea(m_ground, m_ground2, groundLayer);
+
+
+    }
+    private void Jump()
+    {
+
+        // Checks if player is grounded 
+
+        if (m_isGrounded)
+        {
+
+            // Makes player jump
+
+            m_player.AddForce(transform.up * m_jumpHeight);
+            m_isJumping = true;
+
+        }
+    }
+    public void TakeDamage(float damage)
+    {
+        Debug.Log("Hit");
+
+        // Takes damage from player health variable
+
+        m_health -= damage;
+
+        // Runs end game process when player has no more health
+
+        if (m_health <= 0)
+        {
+            m_anim.SetInteger("State", 6);
+            m_playerDead = true;
+            m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
+            ShowGameOver();
+            Invoke("PlayerLose", 2.5f);
+        }
+    }
     private void Move()
     {
-        if (IsGrounded())
+
+
+        // Checks if player is in contact with the ground using the attached groundcheck object
+
+        m_ground = GameObject.FindGameObjectWithTag("Groundcheck1").transform.position;
+        m_ground2 = GameObject.FindGameObjectWithTag("Groundcheck2").transform.position;
+        CheckGrounded();
+
+        if (m_isGrounded == true)
         {
             m_isJumping = false;
         }
+        Debug.Log(m_isGrounded);
 
-        if (!IsGrounded()) // When player is in the air
+        // Sets player animation dependent on current parameters
+
+        if (!m_isGrounded)
         {
             m_anim.SetInteger("State", 2);
         }
-        else if (IsGrounded() && m_xAxis != 0 && m_isJumping == false) // When player is moving and touching the ground
+        else if (m_isGrounded && m_xAxis != 0 && m_isJumping == false)
         {
             m_anim.SetInteger("State", 1);
         }
-        else if (IsGrounded() && m_isJumping == false) // When player is idle
+        else if (m_isGrounded && m_isJumping == false)
         {
             m_anim.SetInteger("State", 0);
         }
 
-        if (Input.GetButtonDown("Jump"))
+        // Allows player to jump on key press
+
+        if (Input.GetKeyDown("space"))
         {
             Jump();
         }
 
+        // Moves player accordingly to the x axis input
+
         m_player.velocity = new Vector3(m_speed * m_xAxis, m_player.velocity.y, 0);
-    }
 
-    // Update the direction character should be facing
-    private void Look()
-    {
-        if (m_xAxis < 0)
-        {
-            m_playerRenderer.flipX = true;
-        }
-        else if (m_xAxis > 0)
-        {
-            m_playerRenderer.flipX = false;
-        }
     }
-
-    // Swinging Method
-    public void Swinging()
+    private void Swinging()
     {
+        // Disables collider
+
         GetComponent<BoxCollider2D>().enabled = false;
         m_anim.SetInteger("State", 4);
 
+        // Adds force dependent on the current input values (using the horizantal axis)
+
         if (m_xAxis <= 0)
         {
-            m_player.AddForce(transform.right * -m_swingForce);
+            m_player.AddForce(transform.right * -m_swingForce * -m_xAxis);
         }
-        if (m_xAxis >= 0)
+
+        else if (m_xAxis >= 0)
         {
-            m_player.AddForce(transform.right * m_swingForce);
+            m_player.AddForce(transform.right * m_swingForce * m_xAxis);
         }
+
+        // Disconnects swing when jump is pressed
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -120,69 +203,22 @@ public class Player_Controller : MonoBehaviour
             m_player.AddForce(transform.up * m_jumpHeight * m_yAxis);
             StartCoroutine(Wait());
         }
+
     }
-
-    // OnCollision Method
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Look()
     {
-        // Collision with Rope
-        if (collision.gameObject.tag == "Rope" && m_canSwing == true)
+        // Uses x axis to determine players direction of view
+
+        if (m_xAxis < 0)
         {
-            m_isSwinging = true;
-            m_canSwing = false;
-
-            // Attach to rope
-            HingeJoint2D hinge = gameObject.AddComponent<HingeJoint2D>() as HingeJoint2D;
-            hinge.connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();                        
-        }   
-    }
-
-    // IsGrounded Method
-    private bool IsGrounded()
-    {
-        Vector2 position = transform.position;
-
-        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.down, 0.5f, groundLayer);
-
-        if (hit.collider != null)
-        {
-            return true;
+            m_monkey.flipX = true;
         }
-        return false;
-    }
 
-    // Jump Method
-    private void Jump()
-    {
-        if (IsGrounded())
+        else if (m_xAxis > 0)
         {
-            m_player.AddForce(transform.up * m_jumpHeight);
-            m_anim.SetInteger("State", 2);            
+            m_monkey.flipX = false;
         }
     }
-
-    // TakeDamage Method
-    public void TakeDamage(float damage)
-    {
-        Debug.Log("Hit");
-        m_health -= damage;
-        if (m_health <= 0)
-        {
-            m_anim.SetInteger("State", 6);
-            playerDead = true;
-            m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
-            ShowGameOver();
-            Invoke("PlayerLose", 2.5f);
-        }
-    }    
-
-    // SwingWait Method
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(0.1f);
-        m_canSwing = true;
-    }
-
     private void ShowGameOver()
     {
         if (loseText.gameObject.activeInHierarchy == false)
@@ -204,4 +240,5 @@ public class Player_Controller : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
 }
