@@ -55,6 +55,8 @@ public class Player_Controller : MonoBehaviour
         {
             if (m_isSwinging)
             {
+                m_anim.SetInteger("State", 4);
+                
                 Swinging();
             }
             else
@@ -114,7 +116,6 @@ public class Player_Controller : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        Debug.Log("Hit");
 
         // Takes damage from player health variable
 
@@ -145,7 +146,6 @@ public class Player_Controller : MonoBehaviour
         {
             m_isJumping = false;
         }
-        Debug.Log(m_isGrounded);
 
         // Sets player animation dependent on current parameters
 
@@ -179,7 +179,7 @@ public class Player_Controller : MonoBehaviour
         // Disables collider
 
         GetComponent<BoxCollider2D>().enabled = false;
-        m_anim.SetInteger("State", 4);
+  
 
         // Adds force dependent on the current input values (using the horizantal axis)
 
@@ -195,7 +195,7 @@ public class Player_Controller : MonoBehaviour
 
         // Disconnects swing when jump is pressed
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown("space"))
         {
             m_isSwinging = false;
             m_anim.SetInteger("State", 5);
