@@ -23,9 +23,9 @@ public class Player_Controller : MonoBehaviour
 
     private Rigidbody2D m_player;    
     private Animator m_anim;
-    private SpriteRenderer m_playerRenderer;   
-    
-        
+    private SpriteRenderer m_playerRenderer;
+    private bool playerDead = false;
+
     void Start()
     {
         m_playerRenderer = this.GetComponent<SpriteRenderer>();
@@ -38,17 +38,22 @@ public class Player_Controller : MonoBehaviour
         m_yAxis = Input.GetAxis("Vertical");
         m_xAxis = Input.GetAxis("Horizontal");
 
-        Look();
+        if (playerDead == false)
+        {
 
-        if (m_isSwinging)
-        {
-            Swinging();
+            Look();
+
+            if (m_isSwinging)
+            {
+                Swinging();
+            }
+            else
+            {
+                GetComponent<BoxCollider2D>().enabled = true;
+                Move();
+            }
         }
-        else
-        {
-            GetComponent<BoxCollider2D>().enabled = true;
-            Move();
-        }       
+     
     }
 
     private void Move()
@@ -137,7 +142,7 @@ public class Player_Controller : MonoBehaviour
     {
         Vector2 position = transform.position;
 
-        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.down, 0.9f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.down, 0.5f, groundLayer);
 
         if (hit.collider != null)
         {
@@ -163,6 +168,9 @@ public class Player_Controller : MonoBehaviour
         m_health -= damage;
         if (m_health <= 0)
         {
+            m_anim.SetInteger("State", 6);
+            playerDead = true;
+            m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
             ShowGameOver();
             Invoke("PlayerLose", 2.5f);
         }
