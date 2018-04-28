@@ -12,9 +12,9 @@ public class LeaderboardScript : MonoBehaviour
     public struct ScoreEntry
     {
         public string name;
-        public int score;
+        public string score;
 
-        public ScoreEntry(string name, int score)
+        public ScoreEntry(string name, string score)
         {
             this.name = name;
             this.score = score;
@@ -47,7 +47,7 @@ public class LeaderboardScript : MonoBehaviour
         {
             ScoreEntry entry;
             entry.name = PlayerPrefs.GetString(PlayerPrefsBaseKey + "[" + i + "].name", "");
-            entry.score = PlayerPrefs.GetInt(PlayerPrefsBaseKey + "[" + i + "].score", 0);
+            entry.score = PlayerPrefs.GetString(PlayerPrefsBaseKey + "[" + i + "].score", "");
             s_Entries.Add(entry);
         }
 
@@ -67,8 +67,17 @@ public class LeaderboardScript : MonoBehaviour
         {
             var entry = s_Entries[i];
             PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].name", entry.name);
-            PlayerPrefs.SetInt(PlayerPrefsBaseKey + "[" + i + "].score", entry.score);
+            PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].score", entry.score);
         }
+    }    
+
+    // Records a new entry
+    public static void Record(string name, string score)
+    {
+        Entries.Add(new ScoreEntry(name, score));
+        SortScores();
+        Entries.RemoveAt(Entries.Count - 1);
+        SaveScores();
     }
 
     // Returns entry from given index
@@ -84,17 +93,7 @@ public class LeaderboardScript : MonoBehaviour
         for (int i = 0; i < EntryCount; i++)
         {
             Debug.Log(Entries[i]);
-        }     
+        }
         Debug.Log("=============");
     }
-
-    // Records a new entry
-    public static void Record(string name, int score)
-    {
-        Entries.Add(new ScoreEntry(name, score));
-        SortScores();
-        Entries.RemoveAt(Entries.Count - 1);
-        SaveScores();
-    }
-    
 }

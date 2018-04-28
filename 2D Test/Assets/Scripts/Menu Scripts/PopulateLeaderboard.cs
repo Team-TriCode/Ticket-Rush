@@ -16,12 +16,12 @@ public class PopulateLeaderboard : MonoBehaviour
         for (int i = 1; i < lbTable.transform.childCount; i++)
         {
             GameObject row = lbTable.transform.Find("Row" + i).gameObject;
-            Debug.Log(row);
+            //Debug.Log(row);
 
             for (int j = 0; j < row.transform.childCount; j++)
             {
                 string objectTag = row.transform.GetChild(j).tag;
-                Debug.Log(objectTag);
+                //Debug.Log(objectTag);
                 switch (objectTag)
                 {
                     case "rowItemPlace":
@@ -37,14 +37,11 @@ public class PopulateLeaderboard : MonoBehaviour
                         break;
                 }
             }
-        }
-
-        LeaderboardScript.GetEntries();
+        }       
 
         // Need to access Text values of each item
         // Access index and parameters of leaderboard list
-
-        
+                
 
     }
 }

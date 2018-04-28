@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System;
 
 public class MenuScript : MonoBehaviour
 {
@@ -16,15 +17,14 @@ public class MenuScript : MonoBehaviour
 
     public Text userText;
     private string userName;
-    private int userScore;
+    private string userScore;
 
     Resolution[] resolutions;
 
     // Find all resolutions and populate the Resolution Dropdown with the values cast as strings
     void Start()
-    {
-        userName = userText.text;
-        userScore = int.Parse(PlayerPrefs.GetString("playerScore"));
+    {        
+        userScore = PlayerPrefs.GetString("playerScore");
 
         resolutions = Screen.resolutions;
 
@@ -70,7 +70,12 @@ public class MenuScript : MonoBehaviour
     // Record player score and name input to the LeaderboardScript
     public void SubmitButton()
     {
+        userName = userText.text;
+        Debug.Log(userName);
         LeaderboardScript.Record(userName, userScore);
+        string entryName = LeaderboardScript.GetEntry(0).name;
+        string entryScore = LeaderboardScript.GetEntry(0).score;
+        Debug.Log("entryName = " + entryName + "\nentryScore = " + entryScore);
         SceneManager.LoadScene("Leaderboard");
     }
 
