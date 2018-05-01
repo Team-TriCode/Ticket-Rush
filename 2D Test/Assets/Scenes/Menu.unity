@@ -7520,7 +7520,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1976807830}
-        m_MethodName: SubmitButton
+        m_MethodName: LeaderboardButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

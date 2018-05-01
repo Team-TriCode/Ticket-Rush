@@ -67,15 +67,16 @@ public class MenuScript : MonoBehaviour
         Application.Quit();
     }
 
+    public void LeaderboardButton()
+    {
+        SceneManager.LoadScene("Leaderboard");
+    }
+
     // Record player score and name input to the LeaderboardScript
     public void SubmitButton()
     {
         userName = userText.text;
-        Debug.Log(userName);
         LeaderboardScript.Record(userName, userScore);
-        string entryName = LeaderboardScript.GetEntry(0).name;
-        string entryScore = LeaderboardScript.GetEntry(0).score;
-        Debug.Log("entryName = " + entryName + "\nentryScore = " + entryScore);
         SceneManager.LoadScene("Leaderboard");
     }
 

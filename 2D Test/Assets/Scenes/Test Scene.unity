@@ -5681,6 +5681,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   loseText: {fileID: 1479792277}
+  scoreVal: {fileID: 1238415625}
 --- !u!50 &1426740425
 Rigidbody2D:
   serializedVersion: 4

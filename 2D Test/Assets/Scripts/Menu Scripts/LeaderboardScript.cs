@@ -71,6 +71,17 @@ public class LeaderboardScript : MonoBehaviour
         }
     }    
 
+    public static void ClearScores()
+    {
+        Entries.Clear();
+        PlayerPrefs.DeleteAll();
+        for (int i = 0; i < EntryCount; i++)
+        {
+            PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].name", "");
+            PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].score", "");
+        }        
+    }
+
     // Records a new entry
     public static void Record(string name, string score)
     {
@@ -87,13 +98,19 @@ public class LeaderboardScript : MonoBehaviour
     }
 
     // Return all entries
-    public static void GetEntries()
+    public static ScoreEntry GetEntries()
     {
+        ScoreEntry temp = Entries[0];
+
         Debug.Log("=============");
-        for (int i = 0; i < EntryCount; i++)
+        for (int i = 0; i < LeaderboardScript.EntryCount; i++)
         {
-            Debug.Log(Entries[i]);
+            string entryName = LeaderboardScript.GetEntry(i).name;
+            string entryScore = LeaderboardScript.GetEntry(i).score;
+            Debug.Log("entryName = " + entryName + "\nentryScore = " + entryScore);
         }
         Debug.Log("=============");
+
+        return temp;
     }
 }

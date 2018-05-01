@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Player_Controller : MonoBehaviour
 
     private bool m_playerDead = false;
     public Transform loseText;
+    public Text scoreVal;
         
     void Start()
     {
@@ -209,6 +211,7 @@ public class Player_Controller : MonoBehaviour
 
     private void PlayerLose()
     {
+        PlayerPrefs.SetString("playerScore", scoreVal.text);
         SceneManager.LoadScene("GameOver");
     }
 }
