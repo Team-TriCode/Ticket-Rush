@@ -27,7 +27,7 @@ public class Player_Controller : MonoBehaviour
     private float m_xAxis; // Current X axis input
     private float m_yAxis; // Current Y axis input
 
-    private bool m_playerDead = false;
+    public bool m_endGame = false;
     public Transform loseText;
     public Text scoreVal;
         
@@ -48,7 +48,7 @@ public class Player_Controller : MonoBehaviour
         Look();
 
         // Checks whether player is currently interacting with a swing object
-        if (m_playerDead == false)
+        if (m_endGame == false)
         {
             if (m_isSwinging)
             {
@@ -60,6 +60,12 @@ public class Player_Controller : MonoBehaviour
                 GetComponent<BoxCollider2D>().enabled = true;
                 Move();
             }
+        }
+
+        if (m_endGame == true && m_health > 0)
+        {
+            m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
+            WinAnimation();
         }
     }
 
@@ -109,7 +115,7 @@ public class Player_Controller : MonoBehaviour
         if (m_health <= 0)
         {
             m_anim.SetInteger("State", 6);
-            m_playerDead = true;
+            m_endGame = true;
             m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
             ShowGameOver();
             Invoke("PlayerLose", 2.5f);
@@ -199,6 +205,11 @@ public class Player_Controller : MonoBehaviour
             loseText.gameObject.SetActive(true);
             Invoke("HideGameOver", 2.0f);
         }
+    }
+
+    private void WinAnimation()
+    {
+        m_anim.SetInteger("State", 7);
     }
 
     private void HideGameOver()
