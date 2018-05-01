@@ -2258,7 +2258,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a4b339dd9abe9c642b799477051b2be0, type: 3}
   m_Color: {r: 1, g: 0.28676468, b: 0.28676468, a: 1}
   m_FlipX: 0
@@ -5485,6 +5485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winText: {fileID: 989488027}
   scoreVal: {fileID: 1238415625}
+  pc: {fileID: 1426740424}
 --- !u!1 &1387396828
 GameObject:
   m_ObjectHideFlags: 0
@@ -5642,7 +5643,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1426740419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.91, y: -4.25, z: 0}
+  m_LocalPosition: {x: -9.85, y: -4.29, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1428070326}
@@ -5680,6 +5681,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
+  m_endGame: 0
   loseText: {fileID: 1479792277}
 --- !u!50 &1426740425
 Rigidbody2D:
