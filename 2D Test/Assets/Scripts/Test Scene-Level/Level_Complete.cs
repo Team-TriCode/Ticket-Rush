@@ -10,11 +10,13 @@ public class Level_Complete : MonoBehaviour
     public Transform winText;
     public Text scoreVal;
     public Player_Controller pc;
+    public ParticleSystem confetti;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ShowComplete();
-        Invoke("PlayerWin", 2.5f);
+        confetti.Play();
+        Invoke("PlayerWin", 4.0f);
         pc.m_endGame = true;
     }
 
