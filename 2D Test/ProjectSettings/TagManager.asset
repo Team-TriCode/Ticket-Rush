@@ -22,6 +22,7 @@ TagManager:
   - rowItemName
   - rowItemScore
   - rowItemTime
+  - Time
   layers:
   - Default
   - TransparentFX
