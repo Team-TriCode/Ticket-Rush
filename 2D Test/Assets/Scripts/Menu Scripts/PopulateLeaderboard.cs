@@ -47,10 +47,7 @@ public class PopulateLeaderboard : MonoBehaviour
                         break;
                 }
             }
-        }       
-
-        // Need to access Text values of each item
-        // Access index and parameters of leaderboard list
+        }  
     }
 
     // Clears all text in leaderboard

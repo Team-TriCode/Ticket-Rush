@@ -13,6 +13,11 @@ public class UI_Timer : MonoBehaviour {
     public Text timeString;
     public Player_Controller pc;
 
+    private void Start()
+    {
+        timer = 0;
+    }
+
     // Update is called once per frame
     void Update () {
 

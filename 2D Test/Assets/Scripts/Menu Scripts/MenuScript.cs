@@ -79,6 +79,10 @@ public class MenuScript : MonoBehaviour
         LeaderboardScript.Record(userName, userScore);
         SceneManager.LoadScene("Leaderboard");
     }
+    public void RetryButton()
+    {
+        SceneManager.LoadScene("Test Scene");
+    }
 
     // Set master mixer volume to increments of 5 using options slider
     public void SetVolume(float volume)
@@ -107,5 +111,5 @@ public class MenuScript : MonoBehaviour
     {
         Resolution resolution = resolutions[resIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
+    }    
 }

@@ -30,6 +30,7 @@ public class Player_Controller : MonoBehaviour
     public bool m_endGame = false;
     public Transform loseText;
     public Text scoreVal;
+    public Transform retryCanvas;
         
     void Start()
     {
@@ -117,8 +118,7 @@ public class Player_Controller : MonoBehaviour
             m_anim.SetInteger("State", 6);
             m_endGame = true;
             m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
-            ShowGameOver();
-            Invoke("PlayerLose", 2.5f);
+            ShowRetry();
         }
     }
 
@@ -217,6 +217,24 @@ public class Player_Controller : MonoBehaviour
         if (loseText.gameObject.activeInHierarchy == true)
         {
             loseText.gameObject.SetActive(false);
+        }
+    }
+
+    public void ShowRetry()
+    {
+        if (retryCanvas.gameObject.activeInHierarchy == false)
+        {
+            retryCanvas.gameObject.SetActive(true);
+            Invoke("HideRetry", 5.0f);
+            Invoke("PlayerLose", 5.0f);
+        }
+    }
+
+    public void HideRetry()
+    {
+        if (retryCanvas.gameObject.activeInHierarchy == true)
+        {
+            retryCanvas.gameObject.SetActive(false);
         }
     }
 
