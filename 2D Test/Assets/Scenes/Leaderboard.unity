@@ -3752,8 +3752,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2118834124}
-        m_MethodName: MainMenuButton
+      - m_Target: {fileID: 1135879920}
+        m_MethodName: ClearAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

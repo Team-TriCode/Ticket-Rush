@@ -29,7 +29,7 @@ public class PopulateLeaderboard : MonoBehaviour
                 switch (objectTag)
                 {
                     case "rowItemPlace":
-                        tempText = (j + 1).ToString();
+                        tempText = (i).ToString();
                         row.transform.GetChild(j).GetComponentInChildren<Text>().text = tempText;
                         break;
                     case "rowItemName":
@@ -38,9 +38,12 @@ public class PopulateLeaderboard : MonoBehaviour
                         break;
                     case "rowItemScore":
                         tempText = LeaderboardScript.GetEntry(i -1).score;
+                        tempText = tempText.Replace("Score: ", "");
                         row.transform.GetChild(j).GetComponentInChildren<Text>().text = tempText;                            
                         break;
                     case "rowItemTime":
+                        tempText = LeaderboardScript.GetEntry(i -1).time;
+                        row.transform.GetChild(j).GetComponentInChildren<Text>().text = tempText;
                         break;
                     default:
                         Debug.Log("lol");

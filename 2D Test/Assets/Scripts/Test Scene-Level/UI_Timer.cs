@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Timer : MonoBehaviour {
+public class UI_Timer : MonoBehaviour
+{
 
-    public static float timer = 0;
+    public static float timer;
     private float mins;
     private float secs;
     private string minsString;

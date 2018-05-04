@@ -18,6 +18,7 @@ public class MenuScript : MonoBehaviour
     public Text userText;
     private string userName;
     private string userScore;
+    private string userTime;
 
     Resolution[] resolutions;
 
@@ -25,6 +26,7 @@ public class MenuScript : MonoBehaviour
     void Start()
     {        
         userScore = PlayerPrefs.GetString("playerScore");
+        userTime = PlayerPrefs.GetString("playerTime");
 
         resolutions = Screen.resolutions;
 
@@ -76,7 +78,7 @@ public class MenuScript : MonoBehaviour
     public void SubmitButton()
     {
         userName = userText.text;
-        LeaderboardScript.Record(userName, userScore);
+        LeaderboardScript.Record(userName, userScore, userTime);
         SceneManager.LoadScene("Leaderboard");
     }
     public void RetryButton()

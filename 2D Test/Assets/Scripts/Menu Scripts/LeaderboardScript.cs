@@ -13,11 +13,13 @@ public class LeaderboardScript : MonoBehaviour
     {
         public string name;
         public string score;
+        public string time;
 
-        public ScoreEntry(string name, string score)
+        public ScoreEntry(string name, string score, string time)
         {
             this.name = name;
             this.score = score;
+            this.time = time;
         }
     }    
 
@@ -48,6 +50,7 @@ public class LeaderboardScript : MonoBehaviour
             ScoreEntry entry;
             entry.name = PlayerPrefs.GetString(PlayerPrefsBaseKey + "[" + i + "].name", "");
             entry.score = PlayerPrefs.GetString(PlayerPrefsBaseKey + "[" + i + "].score", "");
+            entry.time = PlayerPrefs.GetString(PlayerPrefsBaseKey + "[" + i + "].time", "");
             s_Entries.Add(entry);
         }
 
@@ -68,6 +71,7 @@ public class LeaderboardScript : MonoBehaviour
             var entry = s_Entries[i];
             PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].name", entry.name);
             PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].score", entry.score);
+            PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].time", entry.time);
         }
     }    
 
@@ -79,13 +83,14 @@ public class LeaderboardScript : MonoBehaviour
         {
             PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].name", "");
             PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].score", "");
+            PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].time", "");
         }        
     }
 
     // Records a new entry
-    public static void Record(string name, string score)
+    public static void Record(string name, string score, string time)
     {
-        Entries.Add(new ScoreEntry(name, score));
+        Entries.Add(new ScoreEntry(name, score, time));
         SortScores();
         Entries.RemoveAt(Entries.Count - 1);
         SaveScores();
@@ -107,7 +112,8 @@ public class LeaderboardScript : MonoBehaviour
         {
             string entryName = LeaderboardScript.GetEntry(i).name;
             string entryScore = LeaderboardScript.GetEntry(i).score;
-            Debug.Log("entryName = " + entryName + "\nentryScore = " + entryScore);
+            string entryTime = LeaderboardScript.GetEntry(i).time;
+            Debug.Log("entryName = " + entryName + "\nentryScore = " + entryScore + "\nentryTime = " + entryTime);
         }
         Debug.Log("=============");
 

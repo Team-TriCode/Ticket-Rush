@@ -9,6 +9,7 @@ public class Level_Complete : MonoBehaviour
 {
     public Transform winText;
     public Text scoreVal;
+    public Text timeVal;
     public Player_Controller pc;
     public ParticleSystem confetti;
 
@@ -40,6 +41,7 @@ public class Level_Complete : MonoBehaviour
     private void PlayerWin()
     {
         PlayerPrefs.SetString("playerScore", scoreVal.text);
+        PlayerPrefs.SetString("playerTime", timeVal.text);
         SceneManager.LoadScene("LevelComplete");
     }
 }

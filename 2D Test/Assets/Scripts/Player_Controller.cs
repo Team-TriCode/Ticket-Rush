@@ -30,6 +30,7 @@ public class Player_Controller : MonoBehaviour
     public bool m_endGame = false;
     public Transform loseText;
     public Text scoreVal;
+    public Text timeVal;
     public Transform retryCanvas;
         
     void Start()
@@ -241,6 +242,7 @@ public class Player_Controller : MonoBehaviour
     private void PlayerLose()
     {
         PlayerPrefs.SetString("playerScore", scoreVal.text);
+        PlayerPrefs.SetString("playerTime", timeVal.text);
         SceneManager.LoadScene("GameOver");
     }
 }

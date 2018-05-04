@@ -244,7 +244,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -29100839
+  randomSeed: -1359440740
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -9239,8 +9239,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 596085550}
-        m_MethodName: MainMenuButton
+      - m_Target: {fileID: 596085551}
+        m_MethodName: RetryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9401,6 +9401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winText: {fileID: 989488027}
   scoreVal: {fileID: 1238415625}
+  timeVal: {fileID: 1800574417}
   pc: {fileID: 1426740424}
   confetti: {fileID: 32458008}
 --- !u!1 &1387396828
@@ -9601,6 +9602,7 @@ MonoBehaviour:
   m_endGame: 0
   loseText: {fileID: 1479792277}
   scoreVal: {fileID: 1238415625}
+  timeVal: {fileID: 1800574417}
   retryCanvas: {fileID: 1178193041}
 --- !u!50 &1426740425
 Rigidbody2D:
