@@ -114,6 +114,7 @@ public class LeaderboardScript : MonoBehaviour
             string entryScore = LeaderboardScript.GetEntry(i).score;
             string entryTime = LeaderboardScript.GetEntry(i).time;
             Debug.Log("entryName = " + entryName + "\nentryScore = " + entryScore + "\nentryTime = " + entryTime);
+            Debug.Log("entryTime = " + entryTime);
         }
         Debug.Log("=============");
 
