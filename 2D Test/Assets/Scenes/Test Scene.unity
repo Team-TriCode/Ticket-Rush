@@ -10953,6 +10953,7 @@ GameObject:
   - component: {fileID: 1426740420}
   - component: {fileID: 1426740425}
   - component: {fileID: 1426740424}
+  - component: {fileID: 1426740427}
   - component: {fileID: 1426740423}
   - component: {fileID: 1426740426}
   m_Layer: 0
@@ -11073,6 +11074,7 @@ MonoBehaviour:
   scoreVal: {fileID: 1238415625}
   timeVal: {fileID: 1800574417}
   retryCanvas: {fileID: 1178193041}
+  flash: {fileID: 1426740427}
 --- !u!50 &1426740425
 Rigidbody2D:
   serializedVersion: 4
@@ -11118,6 +11120,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.6516056}
   m_EdgeRadius: 0
+--- !u!114 &1426740427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1426740419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac80de64ae4cdb7419227acb9ab31763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1428070325
 GameObject:
   m_ObjectHideFlags: 0

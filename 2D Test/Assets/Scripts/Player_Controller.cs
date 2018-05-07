@@ -16,6 +16,7 @@ public class Player_Controller : MonoBehaviour
     private bool m_isGrounded = true; // Check to see if player is grounded
     private bool m_canSwing = true; // Check to see if player can connect to swing object
     private bool m_isJumping = false;
+    private bool m_isInvincible = false;
 
     private Rigidbody2D m_player; // Player rigidbody
     private Vector3 m_ground; // Top right corner co-ordinate of groundcheck object
@@ -32,6 +33,7 @@ public class Player_Controller : MonoBehaviour
     public Text scoreVal;
     public Text timeVal;
     public Transform retryCanvas;
+    public DamageFlash flash;
         
     void Start()
     {
@@ -111,7 +113,10 @@ public class Player_Controller : MonoBehaviour
     public void TakeDamage(float damage)
     {
         // Takes damage from player health variable
-        m_health -= damage;
+        if (m_isInvincible == false)
+        {
+            m_health -= damage;
+        }
 
         // Runs end game process when player has no more health
         if (m_health <= 0)
@@ -121,6 +126,18 @@ public class Player_Controller : MonoBehaviour
             m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
             ShowRetry();
         }
+
+        else
+        {
+            m_isInvincible = true;
+            flash.StartFlash();
+            Invoke("ResetInvincible", 2);
+        }
+    }
+
+    private void ResetInvincible()
+    {
+        m_isInvincible = false;
     }
 
     private void Move()
