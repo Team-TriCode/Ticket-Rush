@@ -77,10 +77,10 @@ public class LeaderboardScript : MonoBehaviour
 
     public static void ClearScores()
     {
-        Entries.Clear();
-        PlayerPrefs.DeleteAll();
         for (int i = 0; i < EntryCount; i++)
         {
+            Entries[i] = new ScoreEntry("", "", "");
+
             PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].name", "");
             PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].score", "");
             PlayerPrefs.SetString(PlayerPrefsBaseKey + "[" + i + "].time", "");
@@ -92,7 +92,10 @@ public class LeaderboardScript : MonoBehaviour
     {
         Entries.Add(new ScoreEntry(name, score, time));
         SortScores();
-        Entries.RemoveAt(Entries.Count - 1);
+        if (Entries != null)
+        {
+            Entries.RemoveAt(Entries.Count - 1);
+        }        
         SaveScores();
     }
 

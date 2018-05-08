@@ -547,12 +547,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 73416452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22456a8a4d4503641a5e615f660a6879, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e00bd915c779254e9fee429954d74ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
-  volumeSlider: {fileID: 0}
-  resolutionDropdown: {fileID: 0}
   userText: {fileID: 1093652886}
 --- !u!114 &73416454
 MonoBehaviour:
@@ -6895,7 +6892,6 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: b17b38dceedad054892b8f2b5d7ee35a, type: 2}
   volumeSlider: {fileID: 0}
   resolutionDropdown: {fileID: 0}
-  userText: {fileID: 0}
 --- !u!4 &1945615390
 Transform:
   m_ObjectHideFlags: 0

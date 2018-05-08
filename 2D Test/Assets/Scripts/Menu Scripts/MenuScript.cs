@@ -13,21 +13,13 @@ public class MenuScript : MonoBehaviour
     [SerializeField]
     private Slider volumeSlider;
     [SerializeField]
-    private Dropdown resolutionDropdown;
-
-    public Text userText;
-    private string userName;
-    private string userScore;
-    private string userTime;
+    private Dropdown resolutionDropdown;    
 
     Resolution[] resolutions;
 
     // Find all resolutions and populate the Resolution Dropdown with the values cast as strings
     void Start()
     {        
-        userScore = PlayerPrefs.GetString("playerScore");
-        userTime = PlayerPrefs.GetString("playerTime");
-
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -74,13 +66,6 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("Leaderboard");
     }
 
-    // Record player score and name input to the LeaderboardScript
-    public void SubmitButton()
-    {
-        userName = userText.text;
-        LeaderboardScript.Record(userName, userScore, userTime);
-        SceneManager.LoadScene("Leaderboard");
-    }
     public void RetryButton()
     {
         SceneManager.LoadScene("Test Scene");
