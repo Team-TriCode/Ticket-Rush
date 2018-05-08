@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
-
     public float m_health = 100.0f; // Player health
     private int m_speed = 5; // Player movement speed multiplier
     private int m_jumpHeight = 300; // Player jump height
@@ -126,7 +125,6 @@ public class Player_Controller : MonoBehaviour
             m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
             ShowRetry();
         }
-
         else
         {
             m_isInvincible = true;
