@@ -6,11 +6,14 @@ public class Switch_Controller : MonoBehaviour {
 
     private string m_trigTag;
     private bool m_inside = false;
+    private bool buttonPressed = false;
     private string m_colTag;
+    private Renderer rend;
 
     private void Start()
     {
         m_trigTag = this.tag;
+        rend = GetComponent<Renderer>();
     }
 
     private void Update()
@@ -19,7 +22,10 @@ public class Switch_Controller : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Switch();
+                if (buttonPressed == false)
+                {
+                    Switch();
+                }
             } 
         }
     }
@@ -49,6 +55,8 @@ public class Switch_Controller : MonoBehaviour {
                 GameObject stairs = GameObject.FindGameObjectWithTag("Stairs");
                 Stair_Controller stairController = stairs.GetComponent<Stair_Controller>();
                 stairController.Visible();
+                rend.material.color = Color.red;
+                buttonPressed = true;
                 break;
             case "Elevator2":
                 System.Console.WriteLine("bob");
