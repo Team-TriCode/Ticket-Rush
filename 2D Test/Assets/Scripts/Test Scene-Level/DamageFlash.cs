@@ -21,17 +21,11 @@ public class DamageFlash : MonoBehaviour
     public void StartFlash()
     {
         StartCoroutine(Flasher());
+        StartCoroutine(ScreenFlash());
     }
 
     IEnumerator Flasher()
     {
-        Color color = canvasFlash.GetComponent<Image>().color;
-        color.a = 0.3f;
-        canvasFlash.color = color;
-        yield return new WaitForSeconds(0.05f);
-        color.a = 0;
-        canvasFlash.color = color;
-
         for (int i = 0; i < 7; i++)
         {
             rend.material.color = Color.red;
@@ -40,5 +34,22 @@ public class DamageFlash : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         rend.material.color = originalMaterial;
+    }
+
+    // Flash the screen and fade
+    IEnumerator ScreenFlash()
+    {
+        Color color = canvasFlash.GetComponent<Image>().color;
+
+        color.a = 0.3f;
+        canvasFlash.color = color;
+        yield return new WaitForSeconds(0.1f);
+
+        for (float i = 0.3f; i >= 0; i -= 0.05f)
+        {
+            color.a = i;
+            yield return new WaitForSeconds(0.05f);
+            canvasFlash.color = color;
+        }
     }
 }
