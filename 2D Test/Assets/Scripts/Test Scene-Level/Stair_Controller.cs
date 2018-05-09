@@ -29,4 +29,10 @@ public class Stair_Controller : MonoBehaviour
         }        
     }
 
+	public void Invisible()
+	{
+		m_current = false;
+		this.GetComponent<SpriteRenderer>().enabled = false;
+		this.GetComponent<PolygonCollider2D>().enabled = false;
+	}
 }
