@@ -115,6 +115,12 @@ public class Player_Controller : MonoBehaviour
         if (m_isInvincible == false)
         {
             m_health -= damage;
+			m_isInvincible = true;
+			flash.StartFlash();
+			if (m_health > 0)
+			{
+				Invoke("ResetInvincible", 2);
+			}
         }
 
         // Runs end game process when player has no more health
@@ -124,12 +130,6 @@ public class Player_Controller : MonoBehaviour
             m_endGame = true;
             m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
             ShowRetry();
-        }
-        else
-        {
-            m_isInvincible = true;
-            flash.StartFlash();
-            Invoke("ResetInvincible", 2);
         }
     }
 
