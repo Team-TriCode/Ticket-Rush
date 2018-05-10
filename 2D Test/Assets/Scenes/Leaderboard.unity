@@ -3640,8 +3640,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2.7}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1.35}
+  m_SizeDelta: {x: 0, y: 2.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170465492
 MonoBehaviour:
@@ -6499,7 +6499,6 @@ MonoBehaviour:
   audioMixer: {fileID: 0}
   volumeSlider: {fileID: 0}
   resolutionDropdown: {fileID: 0}
-  userText: {fileID: 0}
 --- !u!1 &2132228743
 GameObject:
   m_ObjectHideFlags: 0
