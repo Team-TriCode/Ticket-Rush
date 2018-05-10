@@ -9,7 +9,7 @@ public class EmailScript : MonoBehaviour
 
     private void WriteToFile()
     {
-        string path = "Assets/Resources/email_list.txt";
+        string path = "email_list.txt";
 
         using (StreamWriter writer = new StreamWriter(path, true))
         {
