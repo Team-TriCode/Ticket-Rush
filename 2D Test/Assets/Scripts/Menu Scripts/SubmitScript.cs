@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class SubmitScript : MonoBehaviour
 {
     public Text userText;
-    private string userName;
+    public Text mailText;
 
+    private string userName;
+    private string userEmail;
     private string userScore;
     private string userTime;
+
+    public EmailScript emailScript;
 
     private void Start()
     {
@@ -24,7 +28,10 @@ public class SubmitScript : MonoBehaviour
     public void SubmitButton()
     {
         userName = userText.text;
+        userEmail = mailText.text;
+        Debug.Log("UserEmail = " + userEmail);
         LeaderboardScript.Record(userName, userScore, userTime);
+        emailScript.AddToList(userEmail);
         SceneManager.LoadScene("Leaderboard");
     }
 }
