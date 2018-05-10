@@ -48,7 +48,6 @@ public class MenuScript : MonoBehaviour
             if (resolutions[i].width == Screen.currentResolution.width &&
                     resolutions[i].height == Screen.currentResolution.height)
             {
-                Debug.Log(i);
                 currentResIndex = i;
             }
         }
