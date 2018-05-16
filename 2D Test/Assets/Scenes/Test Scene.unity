@@ -445,7 +445,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.24705884, g: 0.8117648, b: 0.92549026, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0.8896551, a: 1}
@@ -2394,19 +2394,19 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
+          value: 0.23492432
+          inSlope: -0.29260996
+          outSlope: -0.29260996
           tangentMode: 0
         - serializedVersion: 2
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          value: 0.60635376
+          inSlope: 27.779224
+          outSlope: 27.779224
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -12437,7 +12437,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0:00
+  m_Text: 90
 --- !u!222 &1800574418
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12456,7 +12456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeString: {fileID: 1800574417}
-  pc: {fileID: 1426740424}
+  PC: {fileID: 1426740424}
 --- !u!1 &1803270605
 GameObject:
   m_ObjectHideFlags: 0

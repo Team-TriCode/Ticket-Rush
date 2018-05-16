@@ -2,29 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class UI_Timer : MonoBehaviour
 {
-
     public static float timer;
     private float mins;
     private float secs;
     private string minsString;
     private string secsString;
     public Text timeString;
-    public Player_Controller pc;
+    public Player_Controller PC;
 
     private void Start()
     {
-        timer = 0;
+        timer = float.Parse(timeString.text);
     }
 
     // Update is called once per frame
     void Update () {
 
-        if (pc.m_endGame == false)
+        if (timer > 0)
         {
-            timer += Time.deltaTime;
+            if (!PC.m_endGame)
+            {
+                timer -= Time.deltaTime;
+            }            
 
             mins = Mathf.Floor(timer / 60);
 
@@ -50,8 +53,13 @@ public class UI_Timer : MonoBehaviour
                 secsString = secs.ToString();
             }
 
-            timeString.text = minsString + ":" + secsString;
+            timeString.text = minsString + ":" + secsString;            
         }
-        
+        else
+        {
+            timeString.text = "00:00";
+            PC.TestForDeath();
+        }
+
     }
 }

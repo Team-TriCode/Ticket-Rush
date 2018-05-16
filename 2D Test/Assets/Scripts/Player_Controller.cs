@@ -126,11 +126,16 @@ public class Player_Controller : MonoBehaviour
         // Runs end game process when player has no more health
         if (m_health <= 0)
         {
-            m_anim.SetInteger("State", 6);
-            m_endGame = true;
-            m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
-            ShowRetry();
+            TestForDeath();
         }
+    }
+
+    public void TestForDeath()
+    {
+        m_anim.SetInteger("State", 6);
+        m_endGame = true;
+        m_player.velocity = new Vector3(0, m_player.velocity.y, 0);
+        ShowRetry();
     }
 
     private void ResetInvincible()
