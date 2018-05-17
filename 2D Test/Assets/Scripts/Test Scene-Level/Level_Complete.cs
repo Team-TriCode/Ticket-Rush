@@ -53,7 +53,7 @@ public class Level_Complete : MonoBehaviour
 
         // Converting the edited scoreVal to an int and adding additional score
         int editedScore = Convert.ToInt32(stringScore) + seconds;
-        string finalScore = Convert.ToString(editedScore);
+        string finalScore = Convert.ToString("Score: " + editedScore);
 
         PlayerPrefs.SetString("playerScore", finalScore);
         PlayerPrefs.SetString("playerTime", timeVal.text);
