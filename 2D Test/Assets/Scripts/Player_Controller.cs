@@ -171,7 +171,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         // Allows player to jump on key press
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") || Input.GetButtonDown("A Button"))
         {
             Jump();
         }
@@ -196,7 +196,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         // Disconnects swing when jump is pressed
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") || Input.GetButtonDown("A Button"))
         {
             m_isSwinging = false;
             m_anim.SetInteger("State", 5);

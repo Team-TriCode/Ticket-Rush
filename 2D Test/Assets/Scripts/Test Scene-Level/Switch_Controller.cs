@@ -24,7 +24,7 @@ public class Switch_Controller : MonoBehaviour {
     {
         if (m_colTag == "Player" && m_inside == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("X Button"))
             {
                 if (buttonPressed == false)
                 {

@@ -15,7 +15,7 @@ public class CanvasManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start Button"))
         {
             PauseGame();
         }
