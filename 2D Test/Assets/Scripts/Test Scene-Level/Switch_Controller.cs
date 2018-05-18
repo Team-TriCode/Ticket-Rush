@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Switch_Controller : MonoBehaviour {
 
-    private float m_fire;
     private string m_trigTag;
     private bool m_inside = false;
     private bool buttonPressed = false;
@@ -23,11 +22,9 @@ public class Switch_Controller : MonoBehaviour {
 
     private void Update()
     {
-        m_fire = Input.GetAxis("Fire1");
-
         if (m_colTag == "Player" && m_inside == true)
         {
-            if (m_fire > 0)
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (buttonPressed == false)
                 {

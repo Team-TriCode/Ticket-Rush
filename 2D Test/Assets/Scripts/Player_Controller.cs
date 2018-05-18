@@ -27,7 +27,6 @@ public class Player_Controller : MonoBehaviour
 
     private float m_xAxis; // Current X axis input
     private float m_yAxis; // Current Y axis input
-    private float m_jump;
 
     public bool m_endGame = false;
     public Transform loseText;
@@ -41,7 +40,6 @@ public class Player_Controller : MonoBehaviour
         m_monkey = this.GetComponent<SpriteRenderer>();
         m_anim = this.GetComponent<Animator>();
         m_player = this.GetComponent<Rigidbody2D>();
-        
     }
 
     void Update()
@@ -49,7 +47,6 @@ public class Player_Controller : MonoBehaviour
         // Keeps x and y inputs up to date
         m_yAxis = Input.GetAxis("Vertical");
         m_xAxis = Input.GetAxis("Horizontal");
-        m_jump = Input.GetAxis("Jump");
 
         // Check direction character should be facing
         Look();
@@ -174,7 +171,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         // Allows player to jump on key press
-        if (m_jump > 0)
+        if (Input.GetKeyDown("space"))
         {
             Jump();
         }
@@ -199,7 +196,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         // Disconnects swing when jump is pressed
-        if (m_jump > 0)
+        if (Input.GetKeyDown("space"))
         {
             m_isSwinging = false;
             m_anim.SetInteger("State", 5);
